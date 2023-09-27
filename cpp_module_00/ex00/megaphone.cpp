@@ -6,7 +6,7 @@
 /*   By: ekoljone <ekoljone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 14:57:21 by ekoljone          #+#    #+#             */
-/*   Updated: 2023/09/27 12:50:09 by ekoljone         ###   ########.fr       */
+/*   Updated: 2023/09/27 16:47:52 by ekoljone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	main(int argc, char **argv)
 	{
 		str = argv[i];
 		ctr = -1;
-		while (str[ctr++])
+		while (str[++ctr])
 			str[ctr] = toupper(str[ctr]);
 		std::cout << str;
 	}
