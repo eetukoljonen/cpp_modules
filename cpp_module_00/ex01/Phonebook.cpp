@@ -6,13 +6,13 @@
 /*   By: ekoljone <ekoljone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 17:12:49 by ekoljone          #+#    #+#             */
-/*   Updated: 2023/09/25 14:49:37 by ekoljone         ###   ########.fr       */
+/*   Updated: 2023/09/27 16:51:47 by ekoljone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Phonebook.hpp"
 
-Phonebook::Phonebook() : contact_index(0), contact_amount(0)
+Phonebook::Phonebook() : contact_amount(0),  contact_index(0)
 {}
 
 void	Phonebook::get_user_input(void)

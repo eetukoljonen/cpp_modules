@@ -8,10 +8,10 @@ RM = rm -f
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(CC) -o $(NAME) $(C_FLAGS) $(OBJ)
+	$(CC) -o $(NAME) $(CFLAGS) $(OBJ)
 
 $(OBJ): $(SRC)
-	$(CC) -c $(C_FLAGS) $(SRC)
+	$(CC) -c $(CFLAGS) $(SRC)
 
 clean:
 	$(RM) $(OBJ)
