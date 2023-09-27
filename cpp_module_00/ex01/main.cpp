@@ -6,7 +6,7 @@
 /*   By: ekoljone <ekoljone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 14:31:16 by ekoljone          #+#    #+#             */
-/*   Updated: 2023/09/26 13:58:19 by ekoljone         ###   ########.fr       */
+/*   Updated: 2023/09/27 12:49:19 by ekoljone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int main()
 			<< "\"EXIT\" to exit" << std::endl;
 	while (1)
 	{
+		std::cout << "> ";
 		phone_book.get_user_input();
 	}
 	return (0);

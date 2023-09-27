@@ -6,11 +6,10 @@
 /*   By: ekoljone <ekoljone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 14:57:21 by ekoljone          #+#    #+#             */
-/*   Updated: 2023/09/26 14:03:09 by ekoljone         ###   ########.fr       */
+/*   Updated: 2023/09/27 12:50:09 by ekoljone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string>
 #include <iostream>
 
 int	main(int argc, char **argv)
