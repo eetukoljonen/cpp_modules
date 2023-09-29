@@ -6,7 +6,7 @@
 /*   By: ekoljone <ekoljone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 16:00:07 by ekoljone          #+#    #+#             */
-/*   Updated: 2023/09/29 16:30:05 by ekoljone         ###   ########.fr       */
+/*   Updated: 2023/09/29 16:32:38 by ekoljone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ void	Harl::warning(void) const
 	std::cout << "[ WARNING ]" << std::endl
 		<< "I think I deserve to have some extra bacon for free. I've been coming for years whereas you started working here since last month." << std::endl;
 }
+
 void	Harl::error(void) const
 {
 	std::cout << "[ ERROR ]" << std::endl

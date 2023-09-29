@@ -6,7 +6,7 @@
 /*   By: ekoljone <ekoljone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 16:00:07 by ekoljone          #+#    #+#             */
-/*   Updated: 2023/09/29 16:17:31 by ekoljone         ###   ########.fr       */
+/*   Updated: 2023/09/29 16:32:52 by ekoljone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void	Harl::warning(void) const
 {
 	std::cout << "I think I deserve to have some extra bacon for free. I've been coming for years whereas you started working here since last month." << std::endl;
 }
+
 void	Harl::error(void) const
 {
 	std::cout << "This is unacceptable! I want to speak to the manager now." << std::endl;
