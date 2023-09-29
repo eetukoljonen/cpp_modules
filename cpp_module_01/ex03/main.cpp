@@ -5,20 +5,31 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ekoljone <ekoljone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/27 17:08:20 by ekoljone          #+#    #+#             */
-/*   Updated: 2023/09/28 15:20:34 by ekoljone         ###   ########.fr       */
+/*   Created: 2023/09/28 16:23:54 by ekoljone          #+#    #+#             */
+/*   Updated: 2023/09/28 18:14:50 by ekoljone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "HumanA.hpp"
+#include "HumanB.hpp"
+#include "Weapon.hpp"
 
 int main()
 {
-	randomChump("Kalle");
-	randomChump("Marko");
-	randomChump("Jouni");
-	Zombie *Kalevi = newZombie("Kalevi");
-	Kalevi->announce();
-	delete Kalevi;
-	return (0);
+	{
+		Weapon club = Weapon("crude spiked club");
+		HumanA bob("Bob", club);
+		bob.attack();
+		club.setType("some other type of club");
+		bob.attack();
+	}
+	{
+		Weapon club = Weapon("crude spiked club");
+		HumanB jim("Jim");
+		jim.setWeapon(club);
+		jim.attack();
+		club.setType("some other type of club");
+		jim.attack();
+	}
+return 0;
 }

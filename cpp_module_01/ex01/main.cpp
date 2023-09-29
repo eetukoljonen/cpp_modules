@@ -6,7 +6,7 @@
 /*   By: ekoljone <ekoljone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 17:47:33 by ekoljone          #+#    #+#             */
-/*   Updated: 2023/09/27 18:07:41 by ekoljone         ###   ########.fr       */
+/*   Updated: 2023/09/28 15:22:20 by ekoljone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int main()
 {
-	Zombie *horde = zombieHorde(8, "kalle");
+	Zombie *horde = zombieHorde(10, "Markoboy");
 	horde[0].announce();
 	horde[1].announce();
 	horde[3].announce();

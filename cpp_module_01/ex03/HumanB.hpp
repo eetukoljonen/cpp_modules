@@ -1,24 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   HumanB.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ekoljone <ekoljone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/27 17:08:20 by ekoljone          #+#    #+#             */
-/*   Updated: 2023/09/28 15:20:34 by ekoljone         ###   ########.fr       */
+/*   Created: 2023/09/28 16:16:36 by ekoljone          #+#    #+#             */
+/*   Updated: 2023/09/28 17:42:16 by ekoljone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include <iostream>
+#include "Weapon.hpp"
 
-int main()
+class HumanB
 {
-	randomChump("Kalle");
-	randomChump("Marko");
-	randomChump("Jouni");
-	Zombie *Kalevi = newZombie("Kalevi");
-	Kalevi->announce();
-	delete Kalevi;
-	return (0);
-}
+public:
+	HumanB(std::string name);
+	~HumanB();
+	void attack(void) const;
+	void setWeapon(Weapon &new_weapon);
+private:
+	std::string name;
+	Weapon *weapon;
+};

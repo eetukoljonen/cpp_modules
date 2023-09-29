@@ -5,20 +5,17 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ekoljone <ekoljone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/27 17:08:20 by ekoljone          #+#    #+#             */
-/*   Updated: 2023/09/28 15:20:34 by ekoljone         ###   ########.fr       */
+/*   Created: 2023/09/29 13:56:49 by ekoljone          #+#    #+#             */
+/*   Updated: 2023/09/29 16:28:23 by ekoljone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "Harl.hpp"
 
-int main()
+int main(int argc, char **argv)
 {
-	randomChump("Kalle");
-	randomChump("Marko");
-	randomChump("Jouni");
-	Zombie *Kalevi = newZombie("Kalevi");
-	Kalevi->announce();
-	delete Kalevi;
+	(void)argc;
+	Harl harl;
+	harl.complain(argv[1]);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: ekoljone <ekoljone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 16:57:57 by ekoljone          #+#    #+#             */
-/*   Updated: 2023/09/27 17:23:15 by ekoljone         ###   ########.fr       */
+/*   Updated: 2023/09/28 15:20:26 by ekoljone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,4 @@ Zombie::~Zombie(void)
 void Zombie::announce(void)
 {
 	std::cout << name << ": BraiiiiiiinnnzzzZ..." << std::endl;
-}
-
-Zombie*	newZombie(std::string name)
-{
-	Zombie *new_zombie = new Zombie(name);
-	return (new_zombie);
-}
-
-void	randomChump(std::string name)
-{
-	Zombie chump(name);
-	chump.announce();
 }

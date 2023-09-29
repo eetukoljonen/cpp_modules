@@ -1,24 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   HumanA.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ekoljone <ekoljone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/27 17:08:20 by ekoljone          #+#    #+#             */
-/*   Updated: 2023/09/28 15:20:34 by ekoljone         ###   ########.fr       */
+/*   Created: 2023/09/28 16:01:30 by ekoljone          #+#    #+#             */
+/*   Updated: 2023/09/28 18:15:30 by ekoljone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "HumanA.hpp"
 
-int main()
+HumanA::HumanA(std::string name, Weapon &new_weapon)
+	: name(name), weapon(new_weapon) {}
+
+HumanA::~HumanA(void){}
+
+void HumanA::attack(void) const
 {
-	randomChump("Kalle");
-	randomChump("Marko");
-	randomChump("Jouni");
-	Zombie *Kalevi = newZombie("Kalevi");
-	Kalevi->announce();
-	delete Kalevi;
-	return (0);
+	std::cout << this->name << " attack with their "
+		<< this->weapon.getType() << std::endl;
+	
 }

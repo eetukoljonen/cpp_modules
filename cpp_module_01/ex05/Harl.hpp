@@ -1,24 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ekoljone <ekoljone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/27 17:08:20 by ekoljone          #+#    #+#             */
-/*   Updated: 2023/09/28 15:20:34 by ekoljone         ###   ########.fr       */
+/*   Created: 2023/09/29 15:59:04 by ekoljone          #+#    #+#             */
+/*   Updated: 2023/09/29 16:17:00 by ekoljone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef __HARL_HPP__
+#define __HARL_HPP__
+#include <iostream>
 
-int main()
+class Harl
 {
-	randomChump("Kalle");
-	randomChump("Marko");
-	randomChump("Jouni");
-	Zombie *Kalevi = newZombie("Kalevi");
-	Kalevi->announce();
-	delete Kalevi;
-	return (0);
-}
+public:
+	void	complain(std::string level);
+private:
+	void	debug(void) const;
+	void	info(void) const;
+	void	warning(void) const;
+	void	error(void) const;
+};
+
+typedef void(Harl::*funcPtr)(void) const;
+
+#endif
