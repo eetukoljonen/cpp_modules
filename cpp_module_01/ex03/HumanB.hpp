@@ -6,10 +6,12 @@
 /*   By: ekoljone <ekoljone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 16:16:36 by ekoljone          #+#    #+#             */
-/*   Updated: 2023/09/28 17:42:16 by ekoljone         ###   ########.fr       */
+/*   Updated: 2023/10/03 12:31:25 by ekoljone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef __HUMANA_HPP__
+#define __HUMANA_HPP__
 #include <iostream>
 #include "Weapon.hpp"
 
@@ -24,3 +26,5 @@ private:
 	std::string name;
 	Weapon *weapon;
 };
+
+#endif
