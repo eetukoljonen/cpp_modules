@@ -6,7 +6,7 @@
 /*   By: ekoljone <ekoljone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 13:23:24 by ekoljone          #+#    #+#             */
-/*   Updated: 2023/09/29 13:45:58 by ekoljone         ###   ########.fr       */
+/*   Updated: 2023/10/03 13:30:05 by ekoljone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	FileManipulation::open_fstreams(void)
 		std::cerr << _filename << " couldn't be opened" << std::endl;
 		exit(1);
 	}
-	ofs.open("result");
+	ofs.open(_filename.substr(0, _filename.length()) + ".replace");
 	if (!ofs.is_open())
 	{
 		std::cerr << "result couldn't be opened" << std::endl;
