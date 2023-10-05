@@ -15,7 +15,6 @@ $(OBJ): $(SRC)
 
 clean:
 	$(RM) $(OBJ)
-	$(RM) result
 
 fclean:	clean
 	$(RM) $(NAME)
