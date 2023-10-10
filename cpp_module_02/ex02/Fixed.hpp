@@ -6,10 +6,12 @@
 /*   By: ekoljone <ekoljone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 15:40:30 by ekoljone          #+#    #+#             */
-/*   Updated: 2023/10/10 12:07:22 by ekoljone         ###   ########.fr       */
+/*   Updated: 2023/10/10 12:18:40 by ekoljone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef __FIXED_HPP__
+#define __FIXED_HPP__
 #include <iostream>
 #include <cmath>
 
@@ -50,3 +52,5 @@ private:
 };
 
 std::ostream & operator<<(std::ostream &stream, const Fixed &rhs);
+
+#endif
