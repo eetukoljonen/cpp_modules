@@ -6,7 +6,7 @@
 /*   By: ekoljone <ekoljone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 15:40:46 by ekoljone          #+#    #+#             */
-/*   Updated: 2023/10/10 12:06:39 by ekoljone         ###   ########.fr       */
+/*   Updated: 2023/10/10 15:21:44 by ekoljone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ Fixed &Fixed::operator=( Fixed const &rhs )
 {
 	std::cout << "Copy assigment operator called" << std::endl;
 	if (this != &rhs)
-		this->value = rhs.getRawBits();
+		this->value = rhs.value;
 	return (*this);
 }
 
