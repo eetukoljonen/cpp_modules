@@ -6,7 +6,7 @@
 /*   By: ekoljone <ekoljone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 15:40:46 by ekoljone          #+#    #+#             */
-/*   Updated: 2023/10/05 15:59:34 by ekoljone         ###   ########.fr       */
+/*   Updated: 2023/10/10 12:05:46 by ekoljone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,15 +43,15 @@ Fixed::~Fixed(void)
 	return ;
 }
 
-Fixed & Fixed::operator = ( Fixed const &rhs )
+Fixed &Fixed::operator=( Fixed const &rhs )
 {
 	std::cout << "Copy assigment operator called" << std::endl;
 	if (this != &rhs)
 		this->value = rhs.value;
-	return *this;
+	return (*this);
 }
 
-std::ostream & operator << (std::ostream &stream, Fixed const &rhs)
+std::ostream &operator<<(std::ostream &stream, Fixed const &rhs)
 {
 	return (stream << rhs.toFloat());
 }

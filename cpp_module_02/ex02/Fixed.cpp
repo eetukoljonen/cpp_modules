@@ -6,7 +6,7 @@
 /*   By: ekoljone <ekoljone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 15:40:46 by ekoljone          #+#    #+#             */
-/*   Updated: 2023/10/09 17:48:04 by ekoljone         ###   ########.fr       */
+/*   Updated: 2023/10/10 12:03:15 by ekoljone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,9 @@ Fixed::~Fixed(void)
 
 Fixed & Fixed::operator=( Fixed const &rhs )
 {
-	std::cout << "Copy assigment operator called" << std::endl;
 	if (this != &rhs)
 		this->value = rhs.value;
-	return *this;
+	return (*this);
 }
 
 std::ostream &operator<<(std::ostream &stream, Fixed const &rhs)
@@ -58,13 +57,11 @@ std::ostream &operator<<(std::ostream &stream, Fixed const &rhs)
 
 int Fixed::getRawBits(void) const
 {
-	std::cout << "getRawBits member function called" << std::endl;
 	return (this->value);
 }
 
 void Fixed::setRawBits(int const raw)
 {
-	std::cout << "setRawBits member function called" << std::endl;
 	this->value = raw;
 }
 
@@ -80,74 +77,62 @@ int Fixed::toInt(void) const
 
 bool Fixed::operator>(Fixed const &rhs) const
 {
-	std::cout << "Greater than operator called" << std::endl;
 	return (this->value > rhs.value);
 }
 
 bool Fixed::operator<(Fixed const &rhs) const
 {
-	std::cout << "Less than operator called" << std::endl;
 	return (this->value < rhs.value);
 }
 
 bool Fixed::operator<=(Fixed const &rhs) const
 {
-	std::cout << "Less or equals to operator called" << std::endl;
 	return (this->value <= rhs.value);
 }
 
 bool Fixed::operator>=(Fixed const &rhs) const
 {
-	std::cout << "Greater or equals to operator called" << std::endl;
 	return (this->value <= rhs.value);
 }
 
 bool Fixed::operator!=(Fixed const &rhs) const
 {
-	std::cout << "Not equals to operator called" << std::endl;
 	return (this->value != rhs.value);
 }
 
 bool Fixed::operator==(Fixed const &rhs) const
 {
-	std::cout << "Is equals to operator called" << std::endl;
 	return (this->value == rhs.value);
 }
 
 Fixed Fixed::operator+(Fixed const &rhs)
 {
-	std::cout << "Sum operator called" << std::endl;
 	return (Fixed(toFloat() + rhs.toFloat()));
 }
 
 Fixed Fixed::operator-(Fixed const &rhs)
 {
-	std::cout << "Subtract operator called" << std::endl;
 	return (Fixed(toFloat() - rhs.toFloat()));
 }
 
 Fixed Fixed::operator*(Fixed const &rhs)
 {
-	std::cout << "Subtract operator called" << std::endl;
 	return (Fixed(toFloat() * rhs.toFloat()));
 }
 
 Fixed Fixed::operator/(Fixed const &rhs)
 {
-	std::cout << "Subtract operator called" << std::endl;
 	return (Fixed(toFloat() / rhs.toFloat()));
 }
 
 Fixed &Fixed::operator++(void)
 {
-	std::cout << "Pre-increment operator called" << std::endl;
 	++this->value;
 	return (*this);
 }
 
 Fixed Fixed::operator++(int)
 {
-	std::cout << "Post-increment operator called" << std::endl;
 	Fixed temp(*this);
 	this->value++;
 	return (temp);
@@ -155,14 +140,12 @@ Fixed Fixed::operator++(int)
 
 Fixed &Fixed::operator--(void)
 {
-	std::cout << "Pre-decrement operator called" << std::endl;
 	--this->value;
 	return (*this);
 }
 
 Fixed Fixed::operator--(int)
 {
-	std::cout << "Post-decrement operator called" << std::endl;
 	Fixed temp(*this);
 	this->value--;
 	return (temp);
@@ -170,24 +153,20 @@ Fixed Fixed::operator--(int)
 
 Fixed &Fixed::min(Fixed &lhs, Fixed &rhs)
 {
-	std::cout << "min member function called" << std::endl;
 	return (lhs < rhs ? lhs : rhs);
 }
 
 Fixed const &Fixed::min(Fixed const &lhs, Fixed const &rhs)
 {
-	std::cout << "min member function called" << std::endl;
 	return (lhs < rhs ? lhs : rhs);
 }
 
 Fixed &Fixed::max(Fixed &lhs, Fixed &rhs)
 {
-	std::cout << "min member function called" << std::endl;
 	return (lhs > rhs ? lhs : rhs);
 }
 
 Fixed const &Fixed::max(Fixed const &lhs, Fixed const &rhs)
 {
-	std::cout << "min member function called" << std::endl;
 	return (lhs > rhs ? lhs : rhs);
 }
