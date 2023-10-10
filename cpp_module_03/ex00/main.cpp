@@ -6,7 +6,7 @@
 /*   By: ekoljone <ekoljone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 15:13:29 by ekoljone          #+#    #+#             */
-/*   Updated: 2023/10/10 16:47:04 by ekoljone         ###   ########.fr       */
+/*   Updated: 2023/10/10 16:54:56 by ekoljone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ public:
 			return ;
 		std::cout << "ClapTrap " << this->_name << " got repaired, causing to gain " << amount
 			<< " points of health!" << std::endl;
+		this->HitPoints += amount;
 		this->EnergyPoints -= 1;
 	}
 	~ClapTrap()
