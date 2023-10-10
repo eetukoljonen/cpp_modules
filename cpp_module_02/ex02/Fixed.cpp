@@ -6,7 +6,7 @@
 /*   By: ekoljone <ekoljone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 15:40:46 by ekoljone          #+#    #+#             */
-/*   Updated: 2023/10/10 12:03:15 by ekoljone         ###   ########.fr       */
+/*   Updated: 2023/10/10 14:07:51 by ekoljone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ bool Fixed::operator<=(Fixed const &rhs) const
 
 bool Fixed::operator>=(Fixed const &rhs) const
 {
-	return (this->value <= rhs.value);
+	return (this->value >= rhs.value);
 }
 
 bool Fixed::operator!=(Fixed const &rhs) const
