@@ -1,26 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ekoljone <ekoljone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/10 15:13:29 by ekoljone          #+#    #+#             */
-/*   Updated: 2023/10/11 13:39:40 by ekoljone         ###   ########.fr       */
+/*   Created: 2023/10/11 12:20:58 by ekoljone          #+#    #+#             */
+/*   Updated: 2023/10/11 12:25:53 by ekoljone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef __FRAGTRAP_HPP__
+#define __FRAGTRAP_HPP__
 #include "ClapTrap.hpp"
 
-int main()
+class FragTrap : public ClapTrap
 {
-	ClapTrap Janne;
-	ClapTrap John("John");
-	Janne.attack("Kalle");
-	John.attack("Kalle");
-	John.takeDamage(9);
-	John.beRepaired(1);
-	ClapTrap Copy = John;
-	Copy.beRepaired(5);
-	return (0);
-}
+public:
+	FragTrap();
+	FragTrap(std::string name);
+	FragTrap(FragTrap &cpy);
+	~FragTrap();
+	FragTrap	&operator=(FragTrap &rhs);
+	void	attack(std::string const &target);
+	void	highFivesGuys();
+private:
+	std::string	_name;
+	int			HitPoints;
+	int			EnergyPoints;
+	int			AttackDamage;
+};
+
+
+#endif
