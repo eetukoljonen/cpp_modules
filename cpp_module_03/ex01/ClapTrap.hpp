@@ -6,7 +6,7 @@
 /*   By: ekoljone <ekoljone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 09:29:30 by ekoljone          #+#    #+#             */
-/*   Updated: 2023/10/11 09:30:35 by ekoljone         ###   ########.fr       */
+/*   Updated: 2023/10/18 12:59:54 by ekoljone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ public:
 	void		takeDamage(unsigned int amount);
 	void		beRepaired(unsigned int amount);
 	~ClapTrap();
-private:
+protected:
 	std::string	_name;
 	int			HitPoints;
 	int			EnergyPoints;

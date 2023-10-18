@@ -6,7 +6,7 @@
 /*   By: ekoljone <ekoljone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 15:13:29 by ekoljone          #+#    #+#             */
-/*   Updated: 2023/10/11 13:39:40 by ekoljone         ###   ########.fr       */
+/*   Updated: 2023/10/18 12:43:12 by ekoljone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 int main()
 {
-	ClapTrap Janne;
+	ClapTrap Janne("Janne");
 	ClapTrap John("John");
 	Janne.attack("Kalle");
-	John.attack("Kalle");
+	John.attack("Janne");
 	John.takeDamage(9);
 	John.beRepaired(1);
 	ClapTrap Copy = John;

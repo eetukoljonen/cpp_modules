@@ -6,7 +6,7 @@
 /*   By: ekoljone <ekoljone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 09:55:15 by ekoljone          #+#    #+#             */
-/*   Updated: 2023/10/11 12:52:42 by ekoljone         ###   ########.fr       */
+/*   Updated: 2023/10/18 13:06:29 by ekoljone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,6 @@ public:
 	ScavTrap	&operator=(ScavTrap &rhs);
 	void	attack(std::string const &target);
 	void	guardGate();
-private:
-	std::string	_name;
-	int			HitPoints;
-	int			EnergyPoints;
-	int			AttackDamage;
 };
 
 #endif

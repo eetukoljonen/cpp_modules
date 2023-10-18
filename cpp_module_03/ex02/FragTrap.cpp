@@ -6,7 +6,7 @@
 /*   By: ekoljone <ekoljone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 12:26:13 by ekoljone          #+#    #+#             */
-/*   Updated: 2023/10/11 12:28:04 by ekoljone         ###   ########.fr       */
+/*   Updated: 2023/10/18 13:09:12 by ekoljone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,15 @@
 FragTrap::FragTrap()
 {
 	std::cout << "FragTrap Default constructor has been called" << std::endl;
+	this->_name = "Default";
+	this->HitPoints = 100;
+	this->EnergyPoints = 100;
+	this->AttackDamage = 30;
 }
 
 FragTrap::FragTrap(std::string name) : ClapTrap(name)
 {
-	std::cout << "FragTrap String constructor has been called" << std::endl;
+	std::cout << "FragTrap Param constructor has been called" << std::endl;
 	this->_name = name;
 	this->HitPoints = 100;
 	this->EnergyPoints = 100;

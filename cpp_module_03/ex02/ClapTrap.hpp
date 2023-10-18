@@ -6,7 +6,7 @@
 /*   By: ekoljone <ekoljone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 09:29:30 by ekoljone          #+#    #+#             */
-/*   Updated: 2023/10/11 13:13:42 by ekoljone         ###   ########.fr       */
+/*   Updated: 2023/10/18 13:06:23 by ekoljone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ public:
 	void		attack(std::string const &target);
 	void		takeDamage(unsigned int amount);
 	void		beRepaired(unsigned int amount);
-private:
+protected:
 	std::string	_name;
 	int			HitPoints;
 	int			EnergyPoints;

@@ -6,7 +6,7 @@
 /*   By: ekoljone <ekoljone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 10:42:38 by ekoljone          #+#    #+#             */
-/*   Updated: 2023/10/11 11:42:40 by ekoljone         ###   ########.fr       */
+/*   Updated: 2023/10/18 13:01:14 by ekoljone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,15 @@
 ScavTrap::ScavTrap()
 {
 	std::cout << "ScavTrap Default constructor has been called" << std::endl;
+	this->_name = "Default";
+	this->HitPoints = 100;
+	this->EnergyPoints = 50;
+	this->AttackDamage = 20;
 }
 
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 {
-	std::cout << "ScavTrap String constructor has been called" << std::endl;
+	std::cout << "ScavTrap Param constructor has been called" << std::endl;
 	this->_name = name;
 	this->HitPoints = 100;
 	this->EnergyPoints = 50;
@@ -47,7 +51,7 @@ void	ScavTrap::attack(std::string const &target)
 
 void ScavTrap::guardGate()
 {
-	std::cout << "ScavTrap " << this->_name << " is now in Gate keeper mode" << std::endl;
+	std::cout << "ScavTrap " << this->_name << " is now in Gatekeeper mode" << std::endl;
 }
 
 ScavTrap &ScavTrap::operator=(ScavTrap &rhs)
