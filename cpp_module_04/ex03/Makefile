@@ -1,7 +1,7 @@
 NAME = test
 CC = c++
-CFLAGS = -Wall -Werror -Wextra -std=c++98 -g
-SRC =  main.cpp
+CFLAGS = -Wall -Werror -Wextra -std=c++98
+SRC =  main.cpp AMateria.cpp Character.cpp Cure.cpp Ice.cpp MateriaSource.cpp Floor.cpp
 OBJ = $(SRC:.cpp=.o)
 RM = rm -f
 
@@ -20,3 +20,4 @@ fclean:	clean
 	$(RM) $(NAME)
 
 re: fclean all
+

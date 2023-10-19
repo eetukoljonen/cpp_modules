@@ -6,31 +6,20 @@
 /*   By: ekoljone <ekoljone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 14:32:11 by ekoljone          #+#    #+#             */
-/*   Updated: 2023/10/18 14:44:24 by ekoljone         ###   ########.fr       */
+/*   Updated: 2023/10/19 15:03:33 by ekoljone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AMateria.hpp"
 
-AMateria::AMateria()
-{
-	std::cout << "AMateria default constructor called" << std::endl;
-}
+AMateria::AMateria() : type("Default"){}
 
-AMateria::AMateria(AMateria &cpy)
-{
-	std::cout << "AMateria copy constructor called" << std::endl;
-	this->type = cpy.type;
-}
+AMateria::AMateria(AMateria &cpy) : type(cpy.type) {}
 
-AMateria::~AMateria()
-{
-	std::cout << "AMateria destructor called" << std::endl;
-}
+AMateria::~AMateria(){}
 
 AMateria &AMateria::operator=(AMateria &lhs)
 {
-	std::cout << "AMateria copy assigment operator called" << std::endl;
 	if (this != &lhs)
 	{
 		this->type = lhs.type;
@@ -45,5 +34,5 @@ std::string const &AMateria::getType() const
 
 void AMateria::use(ICharacter &target)
 {
-	std::cout << type << " * shoots amateria at " << target.name << " *" << std::endl;
+	std::cout << type << " * shoots amateria at " << target.getName() << " *" << std::endl;
 }

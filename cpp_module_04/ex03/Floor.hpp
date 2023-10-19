@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ICharacter.hpp                                     :+:      :+:    :+:   */
+/*   Floor.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ekoljone <ekoljone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/18 16:10:38 by ekoljone          #+#    #+#             */
-/*   Updated: 2023/10/19 14:57:28 by ekoljone         ###   ########.fr       */
+/*   Created: 2023/10/19 16:17:41 by ekoljone          #+#    #+#             */
+/*   Updated: 2023/10/19 16:44:22 by ekoljone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __ICHARACTER_HPP__
-#define __ICHARACTER_HPP__
-#include <iostream>
+#ifndef __FLOOR_HPP__
+#define __FLOOR_HPP__
+#include "AMateria.hpp"
 
-class AMateria;
-
-class ICharacter
+class Floor
 {
 public:
-	virtual	~ICharacter(){}
-	virtual std::string const	&getName() const = 0;
-	virtual void 				equip(AMateria *m) = 0;
-	virtual void				unequip(int idx) = 0;
-	virtual void				use(int idx, ICharacter& t) = 0;
+	Floor();
+	Floor(AMateria *m);
+	Floor(Floor &cpy);
+	~Floor();
+	Floor &operator=(Floor &lhs);
+	AMateria	*m;
+	Floor		*next;
 };
 
 #endif

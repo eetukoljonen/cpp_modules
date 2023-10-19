@@ -1,29 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ICharacter.hpp                                     :+:      :+:    :+:   */
+/*   Floor.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ekoljone <ekoljone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/18 16:10:38 by ekoljone          #+#    #+#             */
-/*   Updated: 2023/10/19 14:57:28 by ekoljone         ###   ########.fr       */
+/*   Created: 2023/10/19 16:26:02 by ekoljone          #+#    #+#             */
+/*   Updated: 2023/10/19 17:03:52 by ekoljone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __ICHARACTER_HPP__
-#define __ICHARACTER_HPP__
-#include <iostream>
+#include "Floor.hpp"
 
-class AMateria;
+Floor::Floor() : m(NULL), next(NULL){}
 
-class ICharacter
+Floor::Floor(AMateria *m) : m(m), next(NULL){}
+
+Floor::Floor(Floor &cpy) : m(cpy.m), next(cpy.next){}
+
+Floor::~Floor()
 {
-public:
-	virtual	~ICharacter(){}
-	virtual std::string const	&getName() const = 0;
-	virtual void 				equip(AMateria *m) = 0;
-	virtual void				unequip(int idx) = 0;
-	virtual void				use(int idx, ICharacter& t) = 0;
-};
-
-#endif
+	if (m)
+	{
+		delete m;
+		m = NULL;
+	}
+	if (next)
+	{
+		delete next;
+		next = NULL;
+	}
+}
