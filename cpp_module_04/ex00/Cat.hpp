@@ -6,7 +6,7 @@
 /*   By: ekoljone <ekoljone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 15:03:31 by ekoljone          #+#    #+#             */
-/*   Updated: 2023/10/12 15:06:37 by ekoljone         ###   ########.fr       */
+/*   Updated: 2023/10/20 12:34:01 by ekoljone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ class Cat : public Animal
 public:
 	Cat();
 	Cat(Cat &cpy);
-	Cat &operator=(Cat &lhs);
+	Cat &operator=(Cat &rhs);
 	virtual ~Cat();
 	virtual void	makeSound(void) const;
 };

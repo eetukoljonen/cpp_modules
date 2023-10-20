@@ -6,7 +6,7 @@
 /*   By: ekoljone <ekoljone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 14:32:11 by ekoljone          #+#    #+#             */
-/*   Updated: 2023/10/19 15:03:33 by ekoljone         ###   ########.fr       */
+/*   Updated: 2023/10/20 15:50:10 by ekoljone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,18 @@
 
 AMateria::AMateria() : type("Default"){}
 
-AMateria::AMateria(AMateria &cpy) : type(cpy.type) {}
+AMateria::AMateria(std::string const &type) : type(type){}
+
+AMateria::AMateria(AMateria &cpy)
+{
+	*this = cpy;
+}
 
 AMateria::~AMateria(){}
 
-AMateria &AMateria::operator=(AMateria &lhs)
+AMateria &AMateria::operator=(AMateria &rhs)
 {
-	if (this != &lhs)
-	{
-		this->type = lhs.type;
-	}
+	(void)rhs;
 	return (*this);
 }
 
@@ -34,5 +36,5 @@ std::string const &AMateria::getType() const
 
 void AMateria::use(ICharacter &target)
 {
-	std::cout << type << " * shoots amateria at " << target.getName() << " *" << std::endl;
+	(void)target;
 }

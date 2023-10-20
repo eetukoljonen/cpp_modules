@@ -6,7 +6,7 @@
 /*   By: ekoljone <ekoljone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 15:04:36 by ekoljone          #+#    #+#             */
-/*   Updated: 2023/10/12 15:06:10 by ekoljone         ###   ########.fr       */
+/*   Updated: 2023/10/20 12:34:13 by ekoljone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,10 @@ Cat::Cat(Cat &cpy)
 		this->type = cpy.type;
 }
 
-Cat &Cat::operator=(Cat &lhs)
+Cat &Cat::operator=(Cat &rhs)
 {
 	std::cout << "Cat copy assigment operator called" << std::endl;
-	this->type = lhs.type;
+	this->type = rhs.type;
 	return (*this);
 }
 

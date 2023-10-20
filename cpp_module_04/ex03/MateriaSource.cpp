@@ -6,7 +6,7 @@
 /*   By: ekoljone <ekoljone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 13:11:09 by ekoljone          #+#    #+#             */
-/*   Updated: 2023/10/19 15:26:39 by ekoljone         ###   ########.fr       */
+/*   Updated: 2023/10/20 16:33:10 by ekoljone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,12 @@ MateriaSource::~MateriaSource()
 	}
 }
 
-MateriaSource &MateriaSource::operator=(MateriaSource &lhs)
+MateriaSource &MateriaSource::operator=(MateriaSource &rhs)
 {
-	if (this != &lhs)
+	if (this != &rhs)
 	{
 		for (int i = 0; i < max_slots; i++)
-			slots[i] = lhs.slots[i]->clone();
+			slots[i] = rhs.slots[i]->clone();
 	}
 	return (*this);
 }
@@ -51,6 +51,14 @@ void	MateriaSource::learnMateria(AMateria *m)
 	{
 		if (!slots[i])
 			slots[i] = m;
+	}
+	else
+	{
+		i -= 1;
+		delete slots[i];
+		for (int i = 0; i > 0; i--)
+			slots[i] = slots[i - 1];
+		slots[i] = m;
 	}
 }
 

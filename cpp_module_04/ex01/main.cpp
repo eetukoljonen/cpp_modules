@@ -6,7 +6,7 @@
 /*   By: ekoljone <ekoljone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 14:11:54 by ekoljone          #+#    #+#             */
-/*   Updated: 2023/10/13 13:09:53 by ekoljone         ###   ########.fr       */
+/*   Updated: 2023/10/20 16:58:09 by ekoljone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,26 +18,22 @@ void	testDeepCopy(void)
 {
 	//test for the deep copy
 	Dog test;
-	Brain *test_brain = test.getBrain();
 	for (int i = 0; i < 4; i++)
-		test_brain->setIdea(i, "MORO");
-	
+		test.getBrain()->setIdea(i, "MORO");
 	Dog cpy(test);
-	Brain *cpy_brain = cpy.getBrain();
-
 	std::cout << std::endl;
 	std::cout << "address of test: " << &test << std::endl;
 	std::cout << "address of cpy: " << &cpy << std::endl;
-	std::cout << "address of test brain: " << test_brain << std::endl;
-	std::cout << "address of cpy brain: " << cpy_brain << std::endl;
+	std::cout << "address of test brain: " << test.getBrain() << std::endl;
+	std::cout << "address of cpy brain: " << cpy.getBrain() << std::endl;
 	std::cout << std::endl;
 	std::cout << "values pointed by test brain:" << std::endl;
 	for (int i = 0; i < 4; i++)
-		std::cout << test_brain->getIdea(i) << std::endl;
+		std::cout << test.getBrain()->getIdea(i) << std::endl;
 	std::cout << std::endl;
 	std::cout << "values pointed by cpy brain:" << std::endl;
 	for (int i = 0; i < 4; i++)
-		std::cout << cpy_brain->getIdea(i) << std::endl;
+		std::cout <<cpy.getBrain()->getIdea(i) << std::endl;
 	std::cout << std::endl;
 }
 

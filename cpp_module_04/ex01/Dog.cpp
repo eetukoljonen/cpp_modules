@@ -6,7 +6,7 @@
 /*   By: ekoljone <ekoljone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 15:00:52 by ekoljone          #+#    #+#             */
-/*   Updated: 2023/10/12 17:53:01 by ekoljone         ###   ########.fr       */
+/*   Updated: 2023/10/20 12:32:24 by ekoljone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,12 @@ Dog::Dog(Dog &cpy)
 	}
 }
 
-Dog &Dog::operator=(Dog &lhs)
+Dog &Dog::operator=(Dog &rhs)
 {
 	std::cout << "Dog copy assigment operator called" << std::endl;
-	this->type = lhs.type;
+	this->type = rhs.type;
 	delete brain;
-	this->brain = new Brain(*lhs.brain);
+	this->brain = new Brain(*rhs.brain);
 	return (*this);
 }
 

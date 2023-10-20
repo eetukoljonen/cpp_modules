@@ -6,7 +6,7 @@
 /*   By: ekoljone <ekoljone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 13:07:32 by ekoljone          #+#    #+#             */
-/*   Updated: 2023/10/19 14:04:29 by ekoljone         ###   ########.fr       */
+/*   Updated: 2023/10/20 12:34:01 by ekoljone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ public:
 	MateriaSource();
 	MateriaSource(MateriaSource &cpy);
 	virtual ~MateriaSource();
-	MateriaSource		&operator=(MateriaSource &lhs);
+	MateriaSource		&operator=(MateriaSource &rhs);
 	virtual void		learnMateria(AMateria *m);
 	virtual AMateria	*createMateria(std::string const &type);
 private:

@@ -6,7 +6,7 @@
 /*   By: ekoljone <ekoljone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 12:12:46 by ekoljone          #+#    #+#             */
-/*   Updated: 2023/10/19 17:02:05 by ekoljone         ###   ########.fr       */
+/*   Updated: 2023/10/20 16:52:50 by ekoljone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,15 +26,8 @@ Character::Character(std::string name) : _name(name), items(NULL)
 
 Character::Character(Character &cpy) : _name(cpy._name), items(NULL)
 {
-	Floor *tmp = cpy.items;
 	for (int i = 0; i < max_slots; i++)
 		slots[i] = cpy.slots[i]->clone();
-	while (tmp)
-	{
-		items = new Floor();
-		items->m = tmp->m->clone();
-		tmp = tmp->next;
-	}
 }
 
 Character::~Character()
@@ -42,26 +35,22 @@ Character::~Character()
 	for (int i = 0; i < max_slots; i++)
 	{
 		if (slots[i])
+		{
 			delete slots[i];
+			slots[i] = NULL;
+		}
 	}
 	if (items)
 		delete items;
 }
 
-Character &Character::operator=(Character &lhs)
+Character &Character::operator=(Character &rhs)
 {
-	Floor *tmp = lhs.items;
-	if (this != &lhs)
+	if (this != &rhs)
 	{
-		_name = lhs._name;
+		_name = rhs._name;
 		for (int i = 0; i < max_slots; i++)
-			slots[i] = lhs.slots[i]->clone();
-		while (tmp)
-		{
-			items = new Floor();
-			items->m = tmp->m->clone();
-			tmp = tmp->next;
-		}
+			slots[i] = rhs.slots[i]->clone();
 	}
 	return (*this);
 }
@@ -75,6 +64,18 @@ void	Character::equip(AMateria *m)
 		if (!slots[i])
 			slots[i] = m;
 	}
+	else
+	{
+		if (!items)
+		{
+			items = new Floor(m);
+			return ;
+		}
+		Floor *tmp = items;
+		while (tmp->next)
+			tmp = tmp->next;
+		tmp->next = new Floor(m);
+	}
 }
 
 void	Character::unequip(int idx)
@@ -84,9 +85,15 @@ void	Character::unequip(int idx)
 	{
 		if (slots[idx])
 		{
-			while (tmp)
+			if (!items)
+			{
+				items = new Floor(slots[idx]);
+				slots[idx] = NULL;
+				return ;
+			}
+			while (tmp->next)
 				tmp = tmp->next;
-			tmp = new Floor(slots[idx]);
+			tmp->next = new Floor(slots[idx]);
 			slots[idx] = NULL;
 		}
 	}

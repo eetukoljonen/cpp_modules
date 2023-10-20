@@ -6,7 +6,7 @@
 /*   By: ekoljone <ekoljone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 16:07:54 by ekoljone          #+#    #+#             */
-/*   Updated: 2023/10/12 17:22:32 by ekoljone         ###   ########.fr       */
+/*   Updated: 2023/10/20 12:34:01 by ekoljone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ class Brain
 public:
 	Brain();
 	Brain(Brain &cpy);
-	Brain &operator=(Brain &lhs);
+	Brain &operator=(Brain &rhs);
 	~Brain();
 	void				setIdea(int index, std::string const &idea);
 	std::string const	&getIdea(int index) const;

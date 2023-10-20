@@ -6,7 +6,7 @@
 /*   By: ekoljone <ekoljone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 12:45:49 by ekoljone          #+#    #+#             */
-/*   Updated: 2023/10/19 13:30:11 by ekoljone         ###   ########.fr       */
+/*   Updated: 2023/10/20 12:34:01 by ekoljone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ class Ice : public AMateria
 public:
 	Ice();
 	Ice(Ice &cpy);
-	Ice &operator=(Ice &lhs);
+	Ice &operator=(Ice &rhs);
 	virtual ~Ice();
 	virtual AMateria	*clone() const;
 	virtual void		use(ICharacter &target);

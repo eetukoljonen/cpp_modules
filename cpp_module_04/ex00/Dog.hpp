@@ -6,7 +6,7 @@
 /*   By: ekoljone <ekoljone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 14:59:38 by ekoljone          #+#    #+#             */
-/*   Updated: 2023/10/12 15:02:57 by ekoljone         ###   ########.fr       */
+/*   Updated: 2023/10/20 12:34:01 by ekoljone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ class Dog : public Animal
 public:
 	Dog();
 	Dog(Dog &cpy);
-	Dog &operator=(Dog &lhs);
+	Dog &operator=(Dog &rhs);
 	virtual ~Dog();
 	virtual void	makeSound(void) const;
 };

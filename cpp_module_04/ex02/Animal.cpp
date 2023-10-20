@@ -6,7 +6,7 @@
 /*   By: ekoljone <ekoljone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 14:55:21 by ekoljone          #+#    #+#             */
-/*   Updated: 2023/10/13 13:04:38 by ekoljone         ###   ########.fr       */
+/*   Updated: 2023/10/20 12:34:01 by ekoljone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,10 @@ Animal::Animal(Animal &cpy)
 		this->type = cpy.type;
 }
 
-Animal &Animal::operator=(Animal &lhs)
+Animal &Animal::operator=(Animal &rhs)
 {
 	std::cout << "Animal copy assigment operator called" << std::endl;
-	this->type = lhs.type;
+	this->type = rhs.type;
 	return (*this);
 }
 

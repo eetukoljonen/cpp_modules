@@ -6,7 +6,7 @@
 /*   By: ekoljone <ekoljone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 16:11:12 by ekoljone          #+#    #+#             */
-/*   Updated: 2023/10/12 17:45:35 by ekoljone         ###   ########.fr       */
+/*   Updated: 2023/10/20 12:32:58 by ekoljone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,11 @@ Brain::Brain(Brain &cpy)
 	}
 }
 
-Brain &Brain::operator=(Brain &lhs)
+Brain &Brain::operator=(Brain &rhs)
 {
 	std::cout << "Brain copy assigment operator called" << std::endl;
 	for (int i = 0; i < 100; i++)
-		this->ideas[i] = lhs.ideas[i];
+		this->ideas[i] = rhs.ideas[i];
 	return (*this);
 }
 

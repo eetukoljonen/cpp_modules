@@ -6,7 +6,7 @@
 /*   By: ekoljone <ekoljone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 12:02:52 by ekoljone          #+#    #+#             */
-/*   Updated: 2023/10/19 16:49:00 by ekoljone         ###   ########.fr       */
+/*   Updated: 2023/10/20 12:34:01 by ekoljone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ public:
 	Character(std::string name);
 	Character(Character &cpy);
 	virtual ~Character();
-	Character &operator=(Character &lhs);
+	Character &operator=(Character &rhs);
 	virtual std::string const	&getName() const;
 	virtual void				equip(AMateria *m);
 	virtual void				unequip(int idx);

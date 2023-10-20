@@ -6,35 +6,29 @@
 /*   By: ekoljone <ekoljone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 13:00:06 by ekoljone          #+#    #+#             */
-/*   Updated: 2023/10/19 14:58:09 by ekoljone         ###   ########.fr       */
+/*   Updated: 2023/10/20 15:48:29 by ekoljone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cure.hpp"
 
-Cure::Cure()
-{
-	type = "cure";
-}
+Cure::Cure() : AMateria("cure"){}
 
-Cure::Cure(Cure &cpy)
-{
-	type = cpy.type;
-}
+Cure::Cure(Cure &cpy) : AMateria(cpy.type){}
 
 Cure::~Cure(){}
 
-Cure &Cure::operator=(Cure &lhs)
+Cure &Cure::operator=(Cure &rhs)
 {
-	if (this != &lhs)
-		type = lhs.type;
+	std::cout << "Cure copy assigment operator called" << std::endl;
+	if (this != &rhs)
+		type = rhs.type;
 	return (*this);
 }
 
 AMateria *Cure::clone() const
 {
-	AMateria *new_Cure = new Cure();
-	return (new_Cure);
+	return (new Cure());
 }
 
 void	Cure::use(ICharacter &target)

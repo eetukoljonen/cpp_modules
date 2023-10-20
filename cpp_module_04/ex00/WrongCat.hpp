@@ -6,7 +6,7 @@
 /*   By: ekoljone <ekoljone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 15:12:12 by ekoljone          #+#    #+#             */
-/*   Updated: 2023/10/12 15:15:17 by ekoljone         ###   ########.fr       */
+/*   Updated: 2023/10/20 12:34:01 by ekoljone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ class WrongCat : public WrongAnimal
 public:
 	WrongCat();
 	WrongCat(WrongCat &cpy);
-	WrongCat &operator=(WrongCat &lhs);
+	WrongCat &operator=(WrongCat &rhs);
 	virtual ~WrongCat();
 	void	makeSound(void) const;
 };
