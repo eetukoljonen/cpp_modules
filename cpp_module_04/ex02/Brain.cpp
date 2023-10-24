@@ -6,7 +6,7 @@
 /*   By: ekoljone <ekoljone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 16:11:12 by ekoljone          #+#    #+#             */
-/*   Updated: 2023/10/20 12:34:01 by ekoljone         ###   ########.fr       */
+/*   Updated: 2023/10/24 17:58:53 by ekoljone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,18 +20,18 @@ Brain::Brain()
 Brain::Brain(Brain &cpy)
 {
 	std::cout << "Brain copy constructor called" << std::endl;
-	if (this != &cpy)
-	{
-		for (int i = 0; i < 100; i++)
-			this->ideas[i] = cpy.ideas[i];
-	}
+	for (int i = 0; i < 100; i++)
+		this->ideas[i] = cpy.ideas[i];
 }
 
 Brain &Brain::operator=(Brain &rhs)
 {
 	std::cout << "Brain copy assigment operator called" << std::endl;
-	for (int i = 0; i < 100; i++)
-		this->ideas[i] = rhs.ideas[i];
+	if (this != &rhs)
+	{
+		for (int i = 0; i < 100; i++)
+			this->ideas[i] = rhs.ideas[i];
+	}
 	return (*this);
 }
 

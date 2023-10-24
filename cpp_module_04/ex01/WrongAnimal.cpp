@@ -6,7 +6,7 @@
 /*   By: ekoljone <ekoljone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 15:09:00 by ekoljone          #+#    #+#             */
-/*   Updated: 2023/10/20 12:34:01 by ekoljone         ###   ########.fr       */
+/*   Updated: 2023/10/24 17:57:10 by ekoljone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,14 @@ WrongAnimal::WrongAnimal(std::string animal_type) : type(animal_type)
 WrongAnimal::WrongAnimal(WrongAnimal &cpy)
 {
 	std::cout << "WrongAnimal copy constructor called" << std::endl;
-	if (this != &cpy)
-		this->type = cpy.type;
+	this->type = cpy.type;
 }
 
 WrongAnimal &WrongAnimal::operator=(WrongAnimal &rhs)
 {
 	std::cout << "WrongAnimal copy assigment operator called" << std::endl;
-	this->type = rhs.type;
+	if (this != &rhs)
+		this->type = rhs.type;
 	return (*this);
 }
 

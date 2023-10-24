@@ -6,7 +6,7 @@
 /*   By: ekoljone <ekoljone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 15:04:36 by ekoljone          #+#    #+#             */
-/*   Updated: 2023/10/20 12:34:13 by ekoljone         ###   ########.fr       */
+/*   Updated: 2023/10/24 17:52:30 by ekoljone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,14 @@ Cat::Cat() : Animal("Cat")
 Cat::Cat(Cat &cpy)
 {
 	std::cout << "Cat copy constructor called" << std::endl;
-	if (this != &cpy)
-		this->type = cpy.type;
+	this->type = cpy.type;
 }
 
 Cat &Cat::operator=(Cat &rhs)
 {
 	std::cout << "Cat copy assigment operator called" << std::endl;
-	this->type = rhs.type;
+	if (this != &rhs)
+		this->type = rhs.type;
 	return (*this);
 }
 

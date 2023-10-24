@@ -6,7 +6,7 @@
 /*   By: ekoljone <ekoljone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 13:11:09 by ekoljone          #+#    #+#             */
-/*   Updated: 2023/10/24 13:23:13 by ekoljone         ###   ########.fr       */
+/*   Updated: 2023/10/24 17:51:25 by ekoljone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,11 @@ MateriaSource::MateriaSource()
 
 MateriaSource::MateriaSource(MateriaSource &cpy)
 {
+	for (int i = 0; i < max_slots; i++)
+	{
+		if (slots[i])
+			delete slots[i];
+	}
 	for (int i = 0; i < max_slots; i++)
 		slots[i] = cpy.slots[i]->clone();
 }
@@ -37,6 +42,11 @@ MateriaSource &MateriaSource::operator=(MateriaSource &rhs)
 {
 	if (this != &rhs)
 	{
+		for (int i = 0; i < max_slots; i++)
+		{
+			if (slots[i])
+				delete slots[i];
+		}
 		for (int i = 0; i < max_slots; i++)
 			slots[i] = rhs.slots[i]->clone();
 	}

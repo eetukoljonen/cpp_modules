@@ -6,7 +6,7 @@
 /*   By: ekoljone <ekoljone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 12:12:46 by ekoljone          #+#    #+#             */
-/*   Updated: 2023/10/20 16:52:50 by ekoljone         ###   ########.fr       */
+/*   Updated: 2023/10/24 17:51:24 by ekoljone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,11 @@ Character::Character(std::string name) : _name(name), items(NULL)
 
 Character::Character(Character &cpy) : _name(cpy._name), items(NULL)
 {
+	for (int i = 0; i < max_slots; i++)
+	{
+		if (slots[i])
+			delete slots[i];
+	}
 	for (int i = 0; i < max_slots; i++)
 		slots[i] = cpy.slots[i]->clone();
 }
@@ -49,6 +54,11 @@ Character &Character::operator=(Character &rhs)
 	if (this != &rhs)
 	{
 		_name = rhs._name;
+		for (int i = 0; i < max_slots; i++)
+		{
+			if (slots[i])
+				delete slots[i];
+		}
 		for (int i = 0; i < max_slots; i++)
 			slots[i] = rhs.slots[i]->clone();
 	}
