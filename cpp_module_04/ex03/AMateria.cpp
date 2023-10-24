@@ -6,13 +6,13 @@
 /*   By: ekoljone <ekoljone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 14:32:11 by ekoljone          #+#    #+#             */
-/*   Updated: 2023/10/20 15:50:10 by ekoljone         ###   ########.fr       */
+/*   Updated: 2023/10/24 13:15:08 by ekoljone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AMateria.hpp"
 
-AMateria::AMateria() : type("Default"){}
+AMateria::AMateria(){}
 
 AMateria::AMateria(std::string const &type) : type(type){}
 

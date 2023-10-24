@@ -6,7 +6,7 @@
 /*   By: ekoljone <ekoljone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 14:27:48 by ekoljone          #+#    #+#             */
-/*   Updated: 2023/10/20 16:55:08 by ekoljone         ###   ########.fr       */
+/*   Updated: 2023/10/24 13:00:09 by ekoljone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,31 @@ void	character_usage_test()
 	std::cout << std::endl;
 }
 
+// amateria tests
+
+void	materia_test()
+{
+	std::cout << "AMateria test" << std::endl;
+	std::cout << std::endl;
+	ICharacter *bob = new Character("bob");
+	AMateria *ice = new Ice();
+	AMateria *cure = new Cure();
+	std::cout << "ice->use() = ";
+	ice->use(*bob);
+	std::cout << "cure->use() = ";
+	cure->use(*bob);
+	std::cout << "ice->getType() = " << ice->getType() << std::endl;
+	std::cout << "cure->getType() = " << cure->getType() << std::endl;
+	*cure = *ice;
+	std::cout << "cure->getType() after assigning to a different type = " << cure->getType() << std::endl;
+	std::cout << "cure->use() after assigning to a different type = ";
+	cure->use(*bob);
+
+	delete ice;
+	delete cure;
+	delete bob;
+}
+
 //subjects test file
 
 void	test_42()
@@ -119,5 +144,6 @@ int main(int argc, char **argv)
 	}
 	materiasource_test();
 	character_usage_test();
+	materia_test();
 	return (0);
 }

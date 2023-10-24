@@ -6,7 +6,7 @@
 /*   By: ekoljone <ekoljone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 13:00:06 by ekoljone          #+#    #+#             */
-/*   Updated: 2023/10/20 15:48:29 by ekoljone         ###   ########.fr       */
+/*   Updated: 2023/10/24 13:23:16 by ekoljone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ Cure::~Cure(){}
 
 Cure &Cure::operator=(Cure &rhs)
 {
-	std::cout << "Cure copy assigment operator called" << std::endl;
 	if (this != &rhs)
 		type = rhs.type;
 	return (*this);
