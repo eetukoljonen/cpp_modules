@@ -6,7 +6,7 @@
 /*   By: ekoljone <ekoljone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 16:17:41 by ekoljone          #+#    #+#             */
-/*   Updated: 2023/10/20 12:34:01 by ekoljone         ###   ########.fr       */
+/*   Updated: 2023/10/25 13:19:50 by ekoljone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,12 @@ public:
 	Floor(AMateria *m);
 	Floor(Floor &cpy);
 	~Floor();
-	Floor &operator=(Floor &rhs);
+	Floor		&operator=(Floor &rhs);
+	Floor		*getNext();
+	void		setNext(Floor *next);
+	AMateria	*getMateria();
+	void		setMateria(AMateria *m);
+private:
 	AMateria	*m;
 	Floor		*next;
 };

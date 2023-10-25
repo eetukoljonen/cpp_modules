@@ -6,7 +6,7 @@
 /*   By: ekoljone <ekoljone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 16:26:02 by ekoljone          #+#    #+#             */
-/*   Updated: 2023/10/24 13:22:43 by ekoljone         ###   ########.fr       */
+/*   Updated: 2023/10/25 14:23:24 by ekoljone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,26 @@ Floor::Floor() : m(NULL), next(NULL){}
 
 Floor::Floor(AMateria *m) : m(m), next(NULL){}
 
-Floor::Floor(Floor &cpy) : m(cpy.m->clone()), next(new Floor(cpy.next->m->clone())){}
+Floor::Floor(Floor &cpy)
+{
+	m = cpy.m ? cpy.m->clone() : NULL;
+    next = cpy.next ? new Floor(*cpy.next) : NULL;
+}
+
+Floor &Floor::operator=(Floor &rhs)
+{
+	if (this != &rhs)
+	{
+		if (m)
+			delete m;
+		if (next)
+      		delete next;
+		std::cout << rhs.m->getType() << std::endl;
+		m = rhs.m ? rhs.m->clone() : NULL;
+        next = rhs.next ? new Floor(*rhs.next) : NULL;
+	}
+	return (*this);
+}
 
 Floor::~Floor()
 {
@@ -24,4 +43,24 @@ Floor::~Floor()
 		delete m;
 	if (next)
 		delete next;
+}
+
+Floor *Floor::getNext()
+{
+	return (next);
+}
+
+void Floor::setNext(Floor *next)
+{
+	this->next = next;
+}
+
+AMateria *Floor::getMateria()
+{
+	return (m);
+}
+
+void Floor::setMateria(AMateria *m)
+{
+	this->m = m;
 }

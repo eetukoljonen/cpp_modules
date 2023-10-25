@@ -6,7 +6,7 @@
 /*   By: ekoljone <ekoljone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 14:27:48 by ekoljone          #+#    #+#             */
-/*   Updated: 2023/10/24 17:51:22 by ekoljone         ###   ########.fr       */
+/*   Updated: 2023/10/25 14:26:10 by ekoljone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,6 @@ void	materiasource_test()
 	IMateriaSource* src = new MateriaSource();
 	src->learnMateria(new Ice());
 	src->learnMateria(new Cure());
-	src->learnMateria(new Ice());
-	src->learnMateria(new Cure());
-	// trying to learn over 4 materias
 	src->learnMateria(new Ice());
 	src->learnMateria(new Cure());
 	AMateria* tmp;
