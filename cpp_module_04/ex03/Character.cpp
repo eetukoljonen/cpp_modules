@@ -6,7 +6,7 @@
 /*   By: ekoljone <ekoljone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 12:12:46 by ekoljone          #+#    #+#             */
-/*   Updated: 2023/10/25 14:26:07 by ekoljone         ###   ########.fr       */
+/*   Updated: 2023/10/26 15:05:17 by ekoljone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ Character &Character::operator=(Character &rhs)
 		_name = rhs._name;
 		if (items)
 			delete items;
-		items = new Floor(*rhs.items);
+		items = rhs.items ? new Floor(*rhs.items) : NULL;
 		for (int i = 0; i < max_slots; i++)
 		{
 			if (slots[i])
