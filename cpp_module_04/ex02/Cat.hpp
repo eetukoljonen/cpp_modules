@@ -6,7 +6,7 @@
 /*   By: ekoljone <ekoljone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 15:03:31 by ekoljone          #+#    #+#             */
-/*   Updated: 2023/10/20 12:34:01 by ekoljone         ###   ########.fr       */
+/*   Updated: 2023/10/26 10:59:00 by ekoljone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ public:
 	Cat();
 	Cat(Cat &cpy);
 	Cat &operator=(Cat &rhs);
-	virtual ~Cat();
-	virtual void	makeSound(void) const;
+	~Cat();
+	void	makeSound(void) const;
 private:
 	Brain *brain;
 };

@@ -6,7 +6,7 @@
 /*   By: ekoljone <ekoljone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 13:11:09 by ekoljone          #+#    #+#             */
-/*   Updated: 2023/10/25 14:22:48 by ekoljone         ###   ########.fr       */
+/*   Updated: 2023/10/26 10:55:52 by ekoljone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	MateriaSource::learnMateria(AMateria *m)
 {
 	for (int i = 0; i < max_slots; i++)
 	{
-		if (!slots[i])
+		if (!slots[i] && m)
 		{
 			slots[i] = m;
 			return ;

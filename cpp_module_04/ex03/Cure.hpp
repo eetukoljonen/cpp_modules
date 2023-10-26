@@ -6,7 +6,7 @@
 /*   By: ekoljone <ekoljone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 12:58:02 by ekoljone          #+#    #+#             */
-/*   Updated: 2023/10/20 12:34:01 by ekoljone         ###   ########.fr       */
+/*   Updated: 2023/10/26 10:56:07 by ekoljone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ public:
 	Cure();
 	Cure(Cure &cpy);
 	Cure &operator=(Cure &rhs);
-	virtual ~Cure();
-	virtual AMateria	*clone() const;
-	virtual void		use(ICharacter &target);
+	~Cure();
+	AMateria	*clone() const;
+	void		use(ICharacter &target);
 };
 
 #endif

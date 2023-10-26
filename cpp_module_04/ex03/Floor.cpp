@@ -6,7 +6,7 @@
 /*   By: ekoljone <ekoljone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 16:26:02 by ekoljone          #+#    #+#             */
-/*   Updated: 2023/10/25 14:23:24 by ekoljone         ###   ########.fr       */
+/*   Updated: 2023/10/26 10:56:00 by ekoljone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ Floor &Floor::operator=(Floor &rhs)
 			delete m;
 		if (next)
       		delete next;
-		std::cout << rhs.m->getType() << std::endl;
 		m = rhs.m ? rhs.m->clone() : NULL;
         next = rhs.next ? new Floor(*rhs.next) : NULL;
 	}

@@ -6,7 +6,7 @@
 /*   By: ekoljone <ekoljone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 14:32:11 by ekoljone          #+#    #+#             */
-/*   Updated: 2023/10/24 13:15:08 by ekoljone         ###   ########.fr       */
+/*   Updated: 2023/10/26 10:56:10 by ekoljone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ AMateria::AMateria(std::string const &type) : type(type){}
 
 AMateria::AMateria(AMateria &cpy)
 {
-	*this = cpy;
+	(void)cpy;
 }
 
 AMateria::~AMateria(){}
