@@ -6,7 +6,7 @@
 /*   By: ekoljone <ekoljone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 14:55:25 by ekoljone          #+#    #+#             */
-/*   Updated: 2023/11/01 11:52:41 by ekoljone         ###   ########.fr       */
+/*   Updated: 2023/11/15 17:51:09 by ekoljone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 
 #include <iostream>
 #include <string>
+#include "AForm.hpp"
+
+class AForm;
 
 class Bureaucrat
 {
@@ -39,6 +42,8 @@ public:
 	};
 	void				incrementGrade();
 	void				decrementGrade();
+	void				signForm(AForm &form);
+	void				executeForm(AForm const &form);
 	std::string const	&getName() const;
 	int	const			&getGrade() const;
 private:
