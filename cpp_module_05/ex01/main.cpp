@@ -6,7 +6,7 @@
 /*   By: ekoljone <ekoljone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 15:49:14 by ekoljone          #+#    #+#             */
-/*   Updated: 2023/11/15 14:36:17 by ekoljone         ###   ########.fr       */
+/*   Updated: 2023/11/17 15:21:05 by ekoljone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ int main()
 	{
 		Form form("Paper", 151, 1);
 	}
-	catch(std::exception &e)
+	catch(Form::GradeTooLowException)
 	{
-		std::cout << "execption caught with the message: " << e.what() << std::endl;
+		std::cout << "GradeTooLowException caught" << std::endl;
 	}
 	std::cout << "__________________________________________________________" << std::endl << std::endl;;
 
@@ -37,9 +37,9 @@ int main()
 	{
 		Form form1("Paper1", 0 , 1);
 	}
-	catch(std::exception &e)
+	catch(Form::GradeTooHighException)
 	{
-		std::cout << "execption caught with the message: " << e.what() << std::endl;
+		std::cout << "GradeTooHighException caught" << std::endl;
 	}
 	std::cout << "__________________________________________________________" << std::endl << std::endl;;
 
@@ -51,9 +51,9 @@ int main()
 	{
 		Form form2("Paper2", 1 , 151);
 	}
-	catch(std::exception &e)
+	catch(Form::GradeTooLowException)
 	{
-		std::cout << "execption caught with the message: " << e.what() << std::endl;
+		std::cout << "GradeTooLowException caught" << std::endl;
 	}
 	std::cout << "__________________________________________________________" << std::endl << std::endl;;
 
@@ -65,9 +65,9 @@ int main()
 	{
 		Form form3("Paper3", 1 , 0);
 	}
-	catch(std::exception &e)
+	catch(Form::GradeTooHighException)
 	{
-		std::cout << "execption caught with the message: " << e.what() << std::endl;
+		std::cout << "GradeTooHighException caught" << std::endl;
 	}
 	std::cout << "__________________________________________________________" << std::endl << std::endl;;
 
@@ -80,14 +80,7 @@ int main()
 	Form		paper("paper", 1, 1);
 	std::cout << eetu << std::endl;
 	std::cout << paper << std::endl;
-	try
-	{
-		eetu.signForm(paper);
-	}
-	catch(std::exception &e)
-	{
-		std::cout << "execption caught with the message: " << e.what() << std::endl;
-	}
+	eetu.signForm(paper);
 	std::cout << "paper after the signing attempt: " << paper << std::endl;
 	std::cout << "__________________________________________________________" << std::endl << std::endl;;
 
@@ -99,14 +92,7 @@ int main()
 	Form		paper1("paper1", 1, 1);
 	std::cout << eetu1 << std::endl;
 	std::cout << paper1 << std::endl;
-	try
-	{
 		eetu1.signForm(paper1);
-	}
-	catch(std::exception &e)
-	{
-		std::cout << "execption caught with the message: " << e.what() << std::endl;
-	}
 	std::cout << "paper1 after signing: " << paper1 << std::endl;
 	std::cout << "__________________________________________________________" << std::endl << std::endl;;
 	return (0);

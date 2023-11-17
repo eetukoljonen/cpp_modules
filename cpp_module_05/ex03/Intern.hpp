@@ -1,30 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
+/*   Intern.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ekoljone <ekoljone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/15 15:40:20 by ekoljone          #+#    #+#             */
-/*   Updated: 2023/11/17 13:18:30 by ekoljone         ###   ########.fr       */
+/*   Created: 2023/11/17 15:33:38 by ekoljone          #+#    #+#             */
+/*   Updated: 2023/11/17 16:53:18 by ekoljone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __SHRUBBERYCREATIONFORM_HPP__
-#define __SHRUBBERYCREATIONFORM_HPP__
+#ifndef __INTERN_HPP__
+#define __INTERN_HPP__
+#include <iostream>
 #include "AForm.hpp"
-#include <fstream>
 
-class ShrubberyCreationForm : public AForm
+class Intern
 {
 public:
-    ShrubberyCreationForm(std::string target);
-    ShrubberyCreationForm(const ShrubberyCreationForm &cpy);
-    ~ShrubberyCreationForm();
-    ShrubberyCreationForm& operator=(const ShrubberyCreationForm &rhs);
-    void	execute(Bureaucrat const &executor) const;
+    Intern();
+    Intern(const Intern &cpy);
+    ~Intern();
+    Intern &operator=(const Intern &rhs);
+    AForm	*makeForm(std::string form, std::string target);
 private:
-    std::string _target;
+	AForm	*makeShrubbery(std::string target);
+	AForm	*makeRobotomy(std::string target);
+	AForm	*makePresidential(std::string target);
 };
+
+typedef AForm *(Intern::*funcPtr)(std::string target);
 
 #endif

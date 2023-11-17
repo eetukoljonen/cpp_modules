@@ -6,7 +6,7 @@
 /*   By: ekoljone <ekoljone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 15:49:14 by ekoljone          #+#    #+#             */
-/*   Updated: 2023/11/01 11:52:50 by ekoljone         ###   ########.fr       */
+/*   Updated: 2023/11/17 15:14:35 by ekoljone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ int main()
 	{
 		eetu.incrementGrade();
 	}
-	catch(std::exception &e)
+	catch(Bureaucrat::GradeTooHighException)
 	{
-		std::cout << "execption caught with the message: " << e.what() << std::endl;
+		std::cout << "GradeTooHighExecption caught" << std::endl;
 	}
 	std::cout << "__________________________________________________________" << std::endl;
 	std::cout << std::endl;
@@ -51,9 +51,9 @@ int main()
 	{
 		eetu2.decrementGrade();
 	}
-	catch(std::exception &e)
+	catch(Bureaucrat::GradeTooLowException)
 	{
-		std::cout << "execption caught with the message: " << e.what() << std::endl;
+		std::cout << "GradeTooLowExecption caught" << std::endl;
 	}
 	std::cout << "__________________________________________________________" << std::endl;
 	std::cout << std::endl;
@@ -66,9 +66,9 @@ int main()
 	{
 		Bureaucrat eetu3("Eetu3", 151);
 	}
-	catch(std::exception &e)
+	catch(Bureaucrat::GradeTooLowException)
 	{
-		std::cout << "execption caught with the message: " << e.what() << std::endl;
+		std::cout << "GradeTooLowExecption caught" << std::endl;
 	}
 	std::cout << "__________________________________________________________" << std::endl;
 	std::cout << std::endl;
@@ -81,9 +81,9 @@ int main()
 	{
 		Bureaucrat eetu4("Eetu4", 0);
 	}
-	catch(std::exception &e)
+	catch(Bureaucrat::GradeTooHighException)
 	{
-		std::cout << "execption caught with the message: " << e.what() << std::endl;
+		std::cout << "GradeTooHighExecption caught" << std::endl;
 	}
 	std::cout << "__________________________________________________________" << std::endl;
 	return (0);

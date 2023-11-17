@@ -21,8 +21,11 @@ Form::~Form(){}
 
 Form &Form::operator=(Form const &rhs)
 {
-    Form cpy(rhs);
-    return (cpy);
+    if (this != &rhs)
+	{
+		_isSigned = rhs._isSigned;
+	}
+    return (*this);
 }
 
 void Form::beSigned(Bureaucrat &signer)

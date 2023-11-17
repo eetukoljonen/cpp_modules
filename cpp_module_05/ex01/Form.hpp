@@ -6,7 +6,7 @@
 /*   By: ekoljone <ekoljone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 13:27:31 by ekoljone          #+#    #+#             */
-/*   Updated: 2023/11/15 15:57:26 by ekoljone         ###   ########.fr       */
+/*   Updated: 2023/11/17 15:16:04 by ekoljone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,20 +24,8 @@ public:
     Form(const Form &other);
     ~Form();
     Form& operator=(const Form &other);
-    class GradeTooHighException : public std::exception
-	{
-		virtual const char *what() const _NOEXCEPT
-		{
-			return ("Grade Too High!");
-		}
-	};
-    class GradeTooLowException : public std::exception
-	{
-		virtual const char *what() const _NOEXCEPT
-		{
-			return ("Grade Too Low!");
-		}
-	};
+    class GradeTooHighException : public std::exception{};
+    class GradeTooLowException : public std::exception{};
 	void				beSigned(Bureaucrat &signer);
 	std::string const	&getName() const;
 	int const			&getGradeRequiredToSign() const;
