@@ -6,7 +6,7 @@
 /*   By: ekoljone <ekoljone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 14:55:25 by ekoljone          #+#    #+#             */
-/*   Updated: 2023/11/17 15:11:02 by ekoljone         ###   ########.fr       */
+/*   Updated: 2023/11/21 10:41:17 by ekoljone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 #define __BUREAUCRAT_HPP__
 
 #include <iostream>
-#include <string>
 
 class Bureaucrat
 {
@@ -27,7 +26,7 @@ public:
     class GradeTooLowException : public std::exception{};
 	void				incrementGrade();
 	void				decrementGrade();
-	std::string const	&getName() const;
+	std::string	const	&getName() const;
 	int	const			&getGrade() const;
 private:
 	std::string const	_name;

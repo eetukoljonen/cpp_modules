@@ -6,7 +6,7 @@
 /*   By: ekoljone <ekoljone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 14:55:25 by ekoljone          #+#    #+#             */
-/*   Updated: 2023/11/17 15:15:04 by ekoljone         ###   ########.fr       */
+/*   Updated: 2023/11/21 10:42:22 by ekoljone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 #define __BUREAUCRAT_HPP__
 
 #include <iostream>
-#include <string>
 #include "Form.hpp"
 
 class Form;
