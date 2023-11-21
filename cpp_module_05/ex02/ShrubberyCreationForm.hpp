@@ -6,7 +6,7 @@
 /*   By: ekoljone <ekoljone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 15:40:20 by ekoljone          #+#    #+#             */
-/*   Updated: 2023/11/21 10:48:36 by ekoljone         ###   ########.fr       */
+/*   Updated: 2023/11/21 14:15:12 by ekoljone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 class ShrubberyCreationForm : public AForm
 {
 public:
+	ShrubberyCreationForm();
     ShrubberyCreationForm(std::string target);
     ShrubberyCreationForm(const ShrubberyCreationForm &cpy);
     ~ShrubberyCreationForm();

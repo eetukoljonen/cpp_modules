@@ -6,7 +6,7 @@
 /*   By: ekoljone <ekoljone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 13:27:31 by ekoljone          #+#    #+#             */
-/*   Updated: 2023/11/17 15:32:14 by ekoljone         ###   ########.fr       */
+/*   Updated: 2023/11/21 14:10:36 by ekoljone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ class Bureaucrat;
 class AForm
 {
 public:
+	AForm();
     AForm(std::string name, int gradeToSign, int gradeToExecute);
     AForm(const AForm &cpy);
     virtual ~AForm() = 0;

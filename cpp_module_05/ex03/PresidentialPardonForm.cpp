@@ -6,11 +6,13 @@
 /*   By: ekoljone <ekoljone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 13:36:08 by ekoljone          #+#    #+#             */
-/*   Updated: 2023/11/17 14:52:19 by ekoljone         ###   ########.fr       */
+/*   Updated: 2023/11/21 14:12:26 by ekoljone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PresidentialPardonForm.hpp"
+
+PresidentialPardonForm::PresidentialPardonForm() : _target("Default"){}
 
 PresidentialPardonForm::PresidentialPardonForm(std::string target)
 	: AForm("PresidentialPardonForm", 25, 5), _target(target){}

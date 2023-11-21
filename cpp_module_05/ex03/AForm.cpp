@@ -1,5 +1,8 @@
 #include "AForm.hpp"
 
+AForm::AForm() : _name("Default"), _isSigned(false),
+	_gradeRequiredToSign(150), _gradeRequiredToExecute(150){}
+
 AForm::AForm(std::string name, int gradeToSign, int gradeToExecute)
 : _name(name), _isSigned(false), _gradeRequiredToSign(gradeToSign),
 _gradeRequiredToExecute(gradeToExecute)

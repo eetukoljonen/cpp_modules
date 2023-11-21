@@ -6,7 +6,7 @@
 /*   By: ekoljone <ekoljone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 13:36:05 by ekoljone          #+#    #+#             */
-/*   Updated: 2023/11/17 13:36:10 by ekoljone         ###   ########.fr       */
+/*   Updated: 2023/11/21 14:12:27 by ekoljone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 class PresidentialPardonForm : public AForm
 {
 public:
+	PresidentialPardonForm();
     PresidentialPardonForm(std::string target);
     PresidentialPardonForm(const PresidentialPardonForm &cpy);
     ~PresidentialPardonForm();

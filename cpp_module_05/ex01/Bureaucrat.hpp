@@ -6,7 +6,7 @@
 /*   By: ekoljone <ekoljone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 14:55:25 by ekoljone          #+#    #+#             */
-/*   Updated: 2023/11/21 10:42:22 by ekoljone         ###   ########.fr       */
+/*   Updated: 2023/11/21 14:07:35 by ekoljone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ class Form;
 class Bureaucrat
 {
 public:
+	Bureaucrat();
 	Bureaucrat(std::string name, int grade);
     Bureaucrat(const Bureaucrat &other);
     ~Bureaucrat();

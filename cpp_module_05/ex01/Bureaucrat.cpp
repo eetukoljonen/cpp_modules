@@ -6,11 +6,13 @@
 /*   By: ekoljone <ekoljone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 14:55:29 by ekoljone          #+#    #+#             */
-/*   Updated: 2023/11/15 14:38:10 by ekoljone         ###   ########.fr       */
+/*   Updated: 2023/11/21 14:07:34 by ekoljone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+
+Bureaucrat::Bureaucrat() : _name("Default"), _grade(150){}
 
 Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name)
 {

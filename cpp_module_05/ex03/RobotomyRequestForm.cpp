@@ -6,11 +6,13 @@
 /*   By: ekoljone <ekoljone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 13:08:09 by ekoljone          #+#    #+#             */
-/*   Updated: 2023/11/17 14:25:45 by ekoljone         ###   ########.fr       */
+/*   Updated: 2023/11/21 14:13:12 by ekoljone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RobotomyRequestForm.hpp"
+
+RobotomyRequestForm::RobotomyRequestForm() : _target("Default"){}
 
 RobotomyRequestForm::RobotomyRequestForm(std::string target)
 	: AForm("RobotomyRequestForm", 72, 45), _target(target){}
