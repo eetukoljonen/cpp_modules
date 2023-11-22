@@ -6,7 +6,7 @@
 /*   By: ekoljone <ekoljone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 15:40:25 by ekoljone          #+#    #+#             */
-/*   Updated: 2023/11/21 14:15:11 by ekoljone         ###   ########.fr       */
+/*   Updated: 2023/11/22 14:16:53 by ekoljone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,10 @@ ShrubberyCreationForm::~ShrubberyCreationForm(){}
 
 ShrubberyCreationForm &ShrubberyCreationForm::operator=(ShrubberyCreationForm const &rhs)
 {
-	(void)rhs;
+	if (this != &rhs)
+	{
+		_target = rhs._target;
+    }
     return (*this);
 }
 
