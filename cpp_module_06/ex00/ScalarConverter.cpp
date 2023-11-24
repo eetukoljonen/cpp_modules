@@ -6,7 +6,7 @@
 /*   By: ekoljone <ekoljone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 10:04:05 by ekoljone          #+#    #+#             */
-/*   Updated: 2023/11/23 17:18:58 by ekoljone         ###   ########.fr       */
+/*   Updated: 2023/11/24 16:47:47 by ekoljone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,49 +31,51 @@ void ScalarConverter::convert(std::string str)
 	int		i = 0;
 	float	f = 0;
 	double	d = 0;
-	// bool	isCharacters = false;
-	// if (!str.compare(".f"))
-	// {
-	// 	std::cout << "invalid argument" << std::endl;
-	// 	return ;
-	// }
-	// for (int i = 0; str[i]; i++)
-	// {
-	// 	if (str[i] < '0' || str[i] > '9')
-	// 	{
-	// 		if (str[i] != '.' && str[i] != 'f')
-	// 			isCharacters = true;
-	// 	}
-	// 	if ((isCharacters && str.length() > 1) || (str.find(".") != str.rfind(".")) || (str.find("f") != str.rfind("f")))
-	// 	{
-	// 		std::cout << "invalid argument" << std::endl;
-	// 		return ;
-	// 	}
-	// }
-	if ((str.find('.') != str.rfind('.')) || (str.find('f') != str.rfind('f')) || (str.find(".") != std::string::npos && str.find('f') < str.find('.')))
+	int		str_len = str.length();
+	try{std::stod(str);}
+	catch(std::out_of_range)
 	{
-		std::cout << "invalid argument" << std::endl;
-		return;
+		std::cout	<< "char: impossible" << std::endl
+					<< "int: impossible" << std::endl
+					<< "float: impossible" << std::endl
+					<< "double: impossible" << std::endl;
+		return ;
 	}
-	try{std::stof(str);}catch(std::out_of_range){std::cout << "invalid argument" << std::endl; return;}
-	catch(std::invalid_argument){if (str.length() > 1){std::cout << "invalid argument" << std::endl; return;}}
-	if ((str.length() == 1 && str[0] >= 0 && str[0] <= 47) || (str[0] >= 58 && str[0] <= 126))
+	catch(std::invalid_argument)
+	{
+		if (str.length() > 1)
+		{
+			std::cout << "invalid argument" << std::endl;
+			return;
+		}
+	}
+	if (str_len == 1 && ((str[0] >= 0 && str[0] <= 47)
+		|| (str[0] >= 58 && str[0] <= 127)))
 	{
 		std::cout << "char" << std::endl;
 		c = str[0];
 		i = static_cast<int>(c);
 		d = static_cast<double>(c);
-		c = static_cast<char>(c);
+		f = static_cast<float>(c);
 	}
-	else if (str.find("f") == std::string::npos && str.length() > 1 && (str.find(".") != std::string::npos || std::stof(str) > 2147483647 || std::stof(str) < -2147483648))
+	else if (str.compare("nanff") && str.compare("inff") && str.compare("-inff")
+			&& ((str.find("f") == std::string::npos && str_len > 1 && str.find(".") != std::string::npos)
+			|| std::stod(str) > std::numeric_limits<float>::max()
+			|| std::stod(str) < -std::numeric_limits<float>::max()
+			|| !str.compare("nan")))
 	{
 		std::cout << "double" << std::endl;
 		d = std::stod(str);
 		i = static_cast<int>(d);
-		d = static_cast<double>(d);
+		f = static_cast<float>(d);
 		c = static_cast<char>(d);
 	}
-	else if (str.length() > 1 /*&& str.find(".") != std::string::npos*/ && str.find("f") != std::string::npos)
+	else if ((str_len > 1 && str.find("f") != std::string::npos)
+			|| std::stod(str) > std::numeric_limits<int>::max()
+			|| std::stod(str) < std::numeric_limits<int>::min()
+			|| !str.compare("nanf")
+			|| !str.compare("inff")
+			|| !str.compare("-inff"))
 	{
 		std::cout << "float" << std::endl;
 		f = std::stof(str);
@@ -81,7 +83,7 @@ void ScalarConverter::convert(std::string str)
 		d = static_cast<double>(f);
 		c = static_cast<char>(f);
 	}
-	else //if (str.find(".") == std::string::npos && str.find("f") == std::string::npos)
+	else
 	{
 		std::cout << "int" << std::endl;
 		i = std::stoi(str);
@@ -89,75 +91,33 @@ void ScalarConverter::convert(std::string str)
 		d = static_cast<double>(i);
 		c = static_cast<char>(i);
 	}
-	if (f != f || std::numeric_limits<float>::infinity() == f)
+	if (d != d || std::numeric_limits<double>::infinity() == d
+		|| -std::numeric_limits<double>::infinity() == d)
 	{
-		std::cout << "char: impossible" << std::endl;
-		std::cout << "int: impossible" << std::endl;
+		std::cout	<< "char: impossible" << std::endl
+					<< "int: impossible" << std::endl
+					<< "float: " << std::fixed << std::setprecision(1) << f << "f" << std::endl;
 	}
-	else if (f > 2147483647 || f < -2147483648)
+	else if (d > std::numeric_limits<int>::max()
+			|| d < -std::numeric_limits<int>::max())
 	{
-		std::cout << "char: impossible" << std::endl;
-		std::cout << "int: impossible" << std::endl;
+		std::cout	<< "char: impossible" << std::endl
+					<< "int: impossible" << std::endl;
+		if (d > std::numeric_limits<float>::max() || d < -std::numeric_limits<float>::max())
+			std::cout << "float: impossible" << std::endl;
+		else
+			std::cout << "float: " << std::fixed << std::setprecision(1) << f << "f" << std::endl;
 	}
 	else
 	{
-		if (c < 33 || c > 126)
+		if (d < 0 || d > 127)
+			std::cout << "char: impossible" << std::endl;
+		else if (d < 33 || d > 126)
 			std::cout << "char: non displayable" << std::endl;
 		else
 			std::cout << "char: " << c << std::endl;
-		std::cout << "int: " << i << std::endl;
-		std::cout << "float: " << std::fixed << std::setprecision(1) << f << "f" << std::endl;
-		std::cout << "double: " << std::fixed << std::setprecision(1) << d << std::endl;
+		std::cout	<< "int: " << i << std::endl
+					<< "float: " << std::fixed << std::setprecision(1) << f << "f" << std::endl;
 	}
+	std::cout << "double: " << std::fixed << std::setprecision(1) << d << std::endl;
 }
-
-// void ScalarConverter::convert(std::string str)
-// {
-// 	float	f = 0;
-// 	int		exc = 0;
-// 	try{f = std::stof(str);}
-// 	catch(const std::exception& e){exc = 1;}
-// 	if (exc && str.length() == 1)
-// 		f = static_cast<float>(str[0]);
-// 	else if (exc)
-// 	{
-// 		std::cout << "invalid argument" << std::endl;
-// 		return ;
-// 	}
-// 	if (f != f)
-// 	{
-// 		std::cout << "char: impossible" << std::endl;
-// 		std::cout << "int: impossible" << std::endl; 
-// 		std::cout << "float: nanf" << std::endl;
-// 		std::cout << "double: nan" << std::endl;
-// 	}
-// 	else if (std::numeric_limits<float>::infinity() == f)
-// 	{
-// 		std::cout << "char: impossible" << std::endl;
-// 		std::cout << "int: impossible" << std::endl; 
-// 		std::cout << "float: inff" << std::endl;
-// 		std::cout << "double: inf" << std::endl;
-// 	}
-// 	else if (-std::numeric_limits<float>::infinity() == f)
-// 	{
-// 		std::cout << "char: impossible" << std::endl;
-// 		std::cout << "int: impossible" << std::endl; 
-// 		std::cout << "float: -inff" << std::endl;
-// 		std::cout << "double: -inf" << std::endl;
-// 	}
-// 	else
-// 	{
-// 		if (f >= 33 && f <= 126)
-// 			std::cout << "char: " << static_cast<char>(f) << std::endl;
-// 		else if (f < 33)
-// 			std::cout << "char: non displayable" << std::endl;
-// 		else 
-// 			std::cout << "char: impossible" << std::endl;
-// 		if (f >= 2147483647 || f <= -2147483648)
-// 			std::cout << "int: overflow" << std::endl;
-// 		else
-// 			std::cout << "int: " << static_cast<int>(f) << std::endl;
-// 		std::cout << "float: " << std::fixed << std::setprecision(1) << f << "f" << std::endl;
-// 		std::cout << "double: " << std::fixed << std::setprecision(1) << static_cast<double>(f) << std::endl;
-// 	}
-// }
