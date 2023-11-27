@@ -6,7 +6,7 @@
 /*   By: ekoljone <ekoljone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 10:04:05 by ekoljone          #+#    #+#             */
-/*   Updated: 2023/11/24 16:47:47 by ekoljone         ###   ########.fr       */
+/*   Updated: 2023/11/27 16:08:33 by ekoljone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,13 @@ ScalarConverter &ScalarConverter::operator=(ScalarConverter const &rhs)
     return (*this);
 }
 
-void ScalarConverter::convert(std::string str)
+bool	isValid(std::string str)
 {
-	char	c = 0;
-	int		i = 0;
-	float	f = 0;
-	double	d = 0;
-	int		str_len = str.length();
+	if (!str.compare("nan") || !str.compare("nanf")
+		|| !str.compare("inf") || !str.compare("+inf")
+		|| !str.compare("inff") || !str.compare("+inff")
+		|| !str.compare("-inf") || !str.compare("-inff"))
+		return (true);
 	try{std::stod(str);}
 	catch(std::out_of_range)
 	{
@@ -39,16 +39,48 @@ void ScalarConverter::convert(std::string str)
 					<< "int: impossible" << std::endl
 					<< "float: impossible" << std::endl
 					<< "double: impossible" << std::endl;
-		return ;
+		return (false);
 	}
 	catch(std::invalid_argument)
 	{
 		if (str.length() > 1)
 		{
 			std::cout << "invalid argument" << std::endl;
-			return;
+			return (false);
 		}
 	}
+	if (str.find('f') != str.rfind('f') || str.find('.') != str.rfind('.')
+		|| (str.find('.') != std::string::npos && str.find('f') < str.find('.')))
+	{
+		std::cout << "invalid argument" << std::endl;
+		return (false);
+	}
+	if (str.length() > 1)
+	{
+		for (int i = 0; str[i]; i++)
+		{
+			if (str[i] < '0' || str[i] > '9')
+			{
+				if (str[i] != 'f' && str[i] != '.')
+				{
+					std::cout << "invalid argument" << std::endl;
+					return (false);
+				}	
+			}
+		}		
+	}
+	return (true);
+}
+
+void ScalarConverter::convert(std::string str)
+{
+	char	c = 0;
+	int		i = 0;
+	float	f = 0;
+	double	d = 0;
+	int		str_len = str.length();
+	if (!isValid(str))
+		return;
 	if (str_len == 1 && ((str[0] >= 0 && str[0] <= 47)
 		|| (str[0] >= 58 && str[0] <= 127)))
 	{
@@ -58,7 +90,7 @@ void ScalarConverter::convert(std::string str)
 		d = static_cast<double>(c);
 		f = static_cast<float>(c);
 	}
-	else if (str.compare("nanff") && str.compare("inff") && str.compare("-inff")
+	else if (str.compare("nanff") && str.compare("inff") && str.compare("-inff") && str.compare("+inff")
 			&& ((str.find("f") == std::string::npos && str_len > 1 && str.find(".") != std::string::npos)
 			|| std::stod(str) > std::numeric_limits<float>::max()
 			|| std::stod(str) < -std::numeric_limits<float>::max()
@@ -72,10 +104,7 @@ void ScalarConverter::convert(std::string str)
 	}
 	else if ((str_len > 1 && str.find("f") != std::string::npos)
 			|| std::stod(str) > std::numeric_limits<int>::max()
-			|| std::stod(str) < std::numeric_limits<int>::min()
-			|| !str.compare("nanf")
-			|| !str.compare("inff")
-			|| !str.compare("-inff"))
+			|| std::stod(str) < std::numeric_limits<int>::min())
 	{
 		std::cout << "float" << std::endl;
 		f = std::stof(str);
