@@ -6,7 +6,7 @@
 /*   By: ekoljone <ekoljone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 10:04:05 by ekoljone          #+#    #+#             */
-/*   Updated: 2023/11/27 16:08:33 by ekoljone         ###   ########.fr       */
+/*   Updated: 2023/11/28 13:15:39 by ekoljone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,6 @@ void ScalarConverter::convert(std::string str)
 	if (str_len == 1 && ((str[0] >= 0 && str[0] <= 47)
 		|| (str[0] >= 58 && str[0] <= 127)))
 	{
-		std::cout << "char" << std::endl;
 		c = str[0];
 		i = static_cast<int>(c);
 		d = static_cast<double>(c);
@@ -96,7 +95,6 @@ void ScalarConverter::convert(std::string str)
 			|| std::stod(str) < -std::numeric_limits<float>::max()
 			|| !str.compare("nan")))
 	{
-		std::cout << "double" << std::endl;
 		d = std::stod(str);
 		i = static_cast<int>(d);
 		f = static_cast<float>(d);
@@ -106,7 +104,6 @@ void ScalarConverter::convert(std::string str)
 			|| std::stod(str) > std::numeric_limits<int>::max()
 			|| std::stod(str) < std::numeric_limits<int>::min())
 	{
-		std::cout << "float" << std::endl;
 		f = std::stof(str);
 		i = static_cast<int>(f);
 		d = static_cast<double>(f);
@@ -114,7 +111,6 @@ void ScalarConverter::convert(std::string str)
 	}
 	else
 	{
-		std::cout << "int" << std::endl;
 		i = std::stoi(str);
 		f = static_cast<float>(i);
 		d = static_cast<double>(i);

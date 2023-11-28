@@ -1,4 +1,4 @@
-NAME = test
+NAME = serializer
 CC = c++
 CFLAGS = -Wall -Werror -Wextra -std=c++98
 SRC =  main.cpp Serializer.cpp

@@ -6,7 +6,7 @@
 /*   By: ekoljone <ekoljone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 17:51:44 by ekoljone          #+#    #+#             */
-/*   Updated: 2023/11/27 18:21:39 by ekoljone         ###   ########.fr       */
+/*   Updated: 2023/11/28 13:29:44 by ekoljone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 #include "B.hpp"
 #include "C.hpp"
 #include <iostream>
-#include <cstdlib>
 
 Base	*generate(void)
 {

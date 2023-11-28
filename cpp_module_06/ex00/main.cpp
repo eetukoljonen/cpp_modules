@@ -6,12 +6,11 @@
 /*   By: ekoljone <ekoljone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 10:22:02 by ekoljone          #+#    #+#             */
-/*   Updated: 2023/11/24 15:27:11 by ekoljone         ###   ########.fr       */
+/*   Updated: 2023/11/28 13:30:04 by ekoljone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
-#include <string>
 
 int main(int argc, char **argv)
 {
