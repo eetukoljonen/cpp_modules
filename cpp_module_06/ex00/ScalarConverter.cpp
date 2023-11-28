@@ -6,7 +6,7 @@
 /*   By: ekoljone <ekoljone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 10:04:05 by ekoljone          #+#    #+#             */
-/*   Updated: 2023/11/28 13:15:39 by ekoljone         ###   ########.fr       */
+/*   Updated: 2023/11/28 14:16:45 by ekoljone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,8 @@ bool	isValid(std::string str)
 		{
 			if (str[i] < '0' || str[i] > '9')
 			{
-				if (str[i] != 'f' && str[i] != '.')
+				if ((i > 0 && (str[i] == '-' || str[i] == '+'))
+					&& str[i] != 'f' && str[i] != '.')
 				{
 					std::cout << "invalid argument" << std::endl;
 					return (false);
