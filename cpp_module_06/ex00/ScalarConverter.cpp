@@ -6,7 +6,7 @@
 /*   By: ekoljone <ekoljone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 10:04:05 by ekoljone          #+#    #+#             */
-/*   Updated: 2023/11/28 14:16:45 by ekoljone         ###   ########.fr       */
+/*   Updated: 2023/11/28 15:15:08 by ekoljone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,28 +48,28 @@ bool	isValid(std::string str)
 			std::cout << "invalid argument" << std::endl;
 			return (false);
 		}
+		return (true);
 	}
 	if (str.find('f') != str.rfind('f') || str.find('.') != str.rfind('.')
-		|| (str.find('.') != std::string::npos && str.find('f') < str.find('.')))
+		|| (str.find('.') != std::string::npos && str.find('f') < str.find('.'))
+		|| str.find('-') != str.rfind('-') || str.find('+') != str.rfind('+')
+		|| (str.find('-') != std::string::npos && str.find('+') != std::string::npos))
 	{
 		std::cout << "invalid argument" << std::endl;
 		return (false);
 	}
-	if (str.length() > 1)
+	for (int i = 0; str[i]; i++)
 	{
-		for (int i = 0; str[i]; i++)
+		if (str[i] < '0' || str[i] > '9')
 		{
-			if (str[i] < '0' || str[i] > '9')
+			if (str[i] != 'f' && str[i] != '.'
+				&& str[i] != '-' && str[i] != '+')
 			{
-				if ((i > 0 && (str[i] == '-' || str[i] == '+'))
-					&& str[i] != 'f' && str[i] != '.')
-				{
-					std::cout << "invalid argument" << std::endl;
-					return (false);
-				}	
-			}
-		}		
-	}
+				std::cout << "invalid argument" << std::endl;
+				return (false);
+			}	
+		}
+	}		
 	return (true);
 }
 
@@ -82,7 +82,7 @@ void ScalarConverter::convert(std::string str)
 	int		str_len = str.length();
 	if (!isValid(str))
 		return;
-	if (str_len == 1 && ((str[0] >= 0 && str[0] <= 47)
+	if ((str_len == 1 || str_len == 0) && ((str[0] >= 0 && str[0] <= 47)
 		|| (str[0] >= 58 && str[0] <= 127)))
 	{
 		c = str[0];

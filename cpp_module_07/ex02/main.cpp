@@ -5,17 +5,18 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ekoljone <ekoljone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/23 10:22:02 by ekoljone          #+#    #+#             */
-/*   Updated: 2023/11/28 14:55:07 by ekoljone         ###   ########.fr       */
+/*   Created: 2023/11/28 17:57:54 by ekoljone          #+#    #+#             */
+/*   Updated: 2023/11/28 18:16:35 by ekoljone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScalarConverter.hpp"
+#include "Array.hpp"
 
-int main(int argc, char **argv)
+int main()
 {
-	if (argc != 2)
-		return (0);
-	ScalarConverter::convert(argv[1]);
+	Array<int> intarr(4);
+
+	intarr[0] = 2;
+	std::cout << intarr[0] << std::endl;
 	return (0);
 }

@@ -1,21 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Templates.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ekoljone <ekoljone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/23 10:22:02 by ekoljone          #+#    #+#             */
-/*   Updated: 2023/11/28 14:55:07 by ekoljone         ###   ########.fr       */
+/*   Created: 2023/11/28 15:41:40 by ekoljone          #+#    #+#             */
+/*   Updated: 2023/11/28 16:07:19 by ekoljone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScalarConverter.hpp"
+#ifndef __TEMPLATES_HPP__
+#define __TEMPLATES_HPP__
 
-int main(int argc, char **argv)
+template <typename T>
+T const &max(T const &x, T const &y)
 {
-	if (argc != 2)
-		return (0);
-	ScalarConverter::convert(argv[1]);
-	return (0);
+	return (x > y ? x : y);
 }
+
+template <typename T>
+T const &min(T const &x, T const &y)
+{
+	return (x < y ? x : y);
+}
+
+template <typename T>
+void swap(T &x, T &y)
+{
+	T tmp = x;
+	x = y;
+	y = tmp;
+}
+
+#endif

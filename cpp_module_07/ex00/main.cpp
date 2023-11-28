@@ -5,17 +5,27 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ekoljone <ekoljone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/23 10:22:02 by ekoljone          #+#    #+#             */
-/*   Updated: 2023/11/28 14:55:07 by ekoljone         ###   ########.fr       */
+/*   Created: 2023/11/28 15:26:07 by ekoljone          #+#    #+#             */
+/*   Updated: 2023/11/28 16:08:05 by ekoljone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScalarConverter.hpp"
+#include <iostream>
+#include "Templates.hpp"
 
-int main(int argc, char **argv)
+int main()
 {
-	if (argc != 2)
-		return (0);
-	ScalarConverter::convert(argv[1]);
+	int a = 2;
+	int b = 3;
+	::swap( a, b );
+	std::cout << "a = " << a << ", b = " << b << std::endl;
+	std::cout << "min( a, b ) = " << ::min( a, b ) << std::endl;
+	std::cout << "max( a, b ) = " << ::max( a, b ) << std::endl;
+	std::string c = "chaine1";
+	std::string d = "chaine2";
+	::swap(c, d);
+	std::cout << "c = " << c << ", d = " << d << std::endl;
+	std::cout << "min( c, d ) = " << ::min( c, d ) << std::endl;
+	std::cout << "max( c, d ) = " << ::max( c, d ) << std::endl;
 	return (0);
 }
