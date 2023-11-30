@@ -6,7 +6,7 @@
 /*   By: ekoljone <ekoljone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 16:08:56 by ekoljone          #+#    #+#             */
-/*   Updated: 2023/11/28 17:33:05 by ekoljone         ###   ########.fr       */
+/*   Updated: 2023/11/30 11:27:43 by ekoljone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int main()
 	std::cout << "int_arr before iter = ";
 	::printArray<int>(int_arr, 3);
 
-	::iter<int, int, void, int>(int_arr, 3, addOne);
+	::iter<int>(int_arr, 3, addOne);
 	
 	std::cout << "int_arr after iter = ";
 	::printArray<int>(int_arr, 3);
@@ -29,7 +29,7 @@ int main()
 	std::cout << "float_arr before iter = ";
 	::printArray<float>(float_arr, 3);
 
-	::iter<float, int, void, float>(float_arr, 3, addOne);
+	::iter<float>(float_arr, 3, addOne);
 	
 	std::cout << "float_arr after iter = ";
 	::printArray<float>(float_arr, 3);
@@ -39,7 +39,7 @@ int main()
 	std::cout << "str before iter = ";
 	::printArray<char>(str, 3);
 
-	::iter<char, int, void, char>(str, 3, addOne);
+	::iter<char>(str, 3, addOne);
 	
 	std::cout << "str after iter = ";
 	::printArray<char>(str, 3);

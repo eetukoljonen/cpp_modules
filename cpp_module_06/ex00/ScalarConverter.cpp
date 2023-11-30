@@ -6,7 +6,7 @@
 /*   By: ekoljone <ekoljone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 10:04:05 by ekoljone          #+#    #+#             */
-/*   Updated: 2023/11/28 15:15:08 by ekoljone         ###   ########.fr       */
+/*   Updated: 2023/11/29 15:03:47 by ekoljone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,9 @@ bool	isValid(std::string str)
 	if (str.find('f') != str.rfind('f') || str.find('.') != str.rfind('.')
 		|| (str.find('.') != std::string::npos && str.find('f') < str.find('.'))
 		|| str.find('-') != str.rfind('-') || str.find('+') != str.rfind('+')
-		|| (str.find('-') != std::string::npos && str.find('+') != std::string::npos))
+		|| (str.find('-') != std::string::npos && str.find('+') != std::string::npos)
+		|| (str.find('f') != std::string::npos && (str.find('.') == std::string::npos || (str.find('f') != str.length() - 1)))
+		|| (str.find('.') != std::string::npos && str.find('.') == str.length() - 1))
 	{
 		std::cout << "invalid argument" << std::endl;
 		return (false);
