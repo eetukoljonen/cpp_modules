@@ -6,7 +6,7 @@
 /*   By: ekoljone <ekoljone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 16:09:18 by ekoljone          #+#    #+#             */
-/*   Updated: 2023/11/30 11:26:27 by ekoljone         ###   ########.fr       */
+/*   Updated: 2023/12/11 12:33:42 by ekoljone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,24 +15,26 @@
 
 #include <iostream>
 
-template <typename T>
-void printArray(T *arr, T len)
+template< typename T >
+void print_element( T& x )
 {
-	for (int i = 0; i < len; i++)
-		std::cout << arr[i] << " ";
-	std::cout << std::endl;
+  std::cout << x << std::endl;
+  return;
 }
 
 template <typename T>
-void addOne(T &el)
+void	iter(T *addr, size_t len, void (*f)(T const &))
 {
-	el +=1;
+	for (size_t i = 0; i < len; i++)
+	{
+		f(addr[i]);
+	}
 }
 
 template <typename T>
-void	iter(T *addr, int len, void (*f)(T &))
+void	iter(T *addr, size_t len, void (*f)(T &))
 {
-	for (int i = 0; i < len; i++)
+	for (size_t i = 0; i < len; i++)
 	{
 		f(addr[i]);
 	}

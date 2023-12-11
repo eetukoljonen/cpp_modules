@@ -6,7 +6,7 @@
 /*   By: ekoljone <ekoljone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 16:08:56 by ekoljone          #+#    #+#             */
-/*   Updated: 2023/11/30 11:27:43 by ekoljone         ###   ########.fr       */
+/*   Updated: 2023/12/11 12:34:49 by ekoljone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,33 +15,18 @@
 int main()
 {
 	int int_arr[3] = {1, 2, 3};
-
-	std::cout << "int_arr before iter = ";
-	::printArray<int>(int_arr, 3);
-
-	::iter<int>(int_arr, 3, addOne);
-	
-	std::cout << "int_arr after iter = ";
-	::printArray<int>(int_arr, 3);
+	::iter(int_arr, 3, print_element<int>);
+	std::cout << std::endl;
 
 	float float_arr[3] = {1.3f, 2.4f, 3.6f};
-
-	std::cout << "float_arr before iter = ";
-	::printArray<float>(float_arr, 3);
-
-	::iter<float>(float_arr, 3, addOne);
-	
-	std::cout << "float_arr after iter = ";
-	::printArray<float>(float_arr, 3);
+	::iter(float_arr, 3, print_element<float>);
+	std::cout << std::endl;
 
 	char str[4] = "abc";
+	::iter(str, 3, print_element<char>);
+	std::cout << std::endl;
 
-	std::cout << "str before iter = ";
-	::printArray<char>(str, 3);
-
-	::iter<char>(str, 3, addOne);
-	
-	std::cout << "str after iter = ";
-	::printArray<char>(str, 3);
+	int const const_arr[3] = {7, 8, 9};
+	::iter(const_arr, 3, print_element<int const>);
 	return (0);
 }
