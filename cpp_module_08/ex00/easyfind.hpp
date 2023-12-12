@@ -1,36 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Array.hpp                                          :+:      :+:    :+:   */
+/*   easyfind.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ekoljone <ekoljone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/28 17:42:12 by ekoljone          #+#    #+#             */
-/*   Updated: 2023/12/11 15:39:14 by ekoljone         ###   ########.fr       */
+/*   Created: 2023/12/11 16:11:03 by ekoljone          #+#    #+#             */
+/*   Updated: 2023/12/11 17:31:41 by ekoljone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __ARRAY_HPP__
-#define __ARRAY_HPP__
+#ifndef __EASYFIND_HPP__
+#define __EASYFIND_HPP__
 
 #include <iostream>
+#include <algorithm>
 
-template <typename T>
-class Array
+template<typename T>
+int &easyfind(T &c, int const &find)
 {
-public:
-    Array();
-	Array(unsigned int size);
-    Array(const Array &cpy);
-    ~Array();
-    Array				&operator=(const Array &rhs);
-	unsigned int const	&size() const;
-	T					&operator[](unsigned int index);
-private:
-	T				*_array;
-	unsigned int	_size;
-};
-
-#include "Array.tpp"
+	typename T::iterator it = std::find(c.begin(), c.end(), find);
+	if (it == c.end())
+		throw (std::exception());
+	return (*it);
+}
 
 #endif
