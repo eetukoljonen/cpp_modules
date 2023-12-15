@@ -6,7 +6,7 @@
 /*   By: ekoljone <ekoljone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 18:09:05 by ekoljone          #+#    #+#             */
-/*   Updated: 2023/12/12 14:27:24 by ekoljone         ###   ########.fr       */
+/*   Updated: 2023/12/13 12:37:57 by ekoljone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,11 +55,11 @@ int main()
 	
 //-------------------------------------------------------------------//
 
-	srand(time(0));
 	std::vector<int> vector;
 	for (int i = 0; i < 500; i++)
-		vector.push_back(rand());
+		vector.push_back(i);
 	Span sp3(500);
 	sp3.addRange< std::vector<int> >(vector.begin(), vector.end());
+	std::cout << sp3.longestSpan() << std::endl;
 	std::cout << sp3.shortestSpan() << std::endl;
 }

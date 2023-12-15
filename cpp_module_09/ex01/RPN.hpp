@@ -1,24 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   RPN.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ekoljone <ekoljone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/14 16:33:52 by ekoljone          #+#    #+#             */
-/*   Updated: 2023/12/15 16:33:51 by ekoljone         ###   ########.fr       */
+/*   Created: 2023/12/15 16:53:00 by ekoljone          #+#    #+#             */
+/*   Updated: 2023/12/15 18:27:47 by ekoljone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "BitcoinExchange.hpp"
+#ifndef __RPN_HPP__
+#define __RPN_HPP__
 
-int main(int argc, char **argv)
+#include <stack>
+#include <iostream>
+#include <sstream>
+
+class RPN
 {
-	if (argc != 2)
-	{
-		std::cerr << "Error: could not open file." << std::endl;
-		return (1);
-	}
-	BitcoinExchange::printExchange(argv[1]);
-	return (0);
-}
+public:
+	static void				ReversePolishNotation(std::string input);
+private:
+	static std::stack<int>	_stack;
+	static void				doOperations(std::string const &number);
+	RPN						&operator=(const RPN &rhs);
+	RPN();
+	RPN(const RPN &cpy);
+	~RPN();
+};
+
+bool	isNumber(std::string str);
+
+#endif
