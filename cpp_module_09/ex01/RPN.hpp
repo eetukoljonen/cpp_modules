@@ -6,7 +6,7 @@
 /*   By: ekoljone <ekoljone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 16:53:00 by ekoljone          #+#    #+#             */
-/*   Updated: 2023/12/15 18:27:47 by ekoljone         ###   ########.fr       */
+/*   Updated: 2023/12/18 13:25:21 by ekoljone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,18 @@
 
 class RPN
 {
-public:
-	static void				ReversePolishNotation(std::string input);
+public:	
+	static void					ReversePolishNotation(std::string input);
 private:
-	static std::stack<int>	_stack;
-	static void				doOperations(std::string const &number);
-	RPN						&operator=(const RPN &rhs);
+	static std::stack<float>	_stack;
+	static void					doOperations(std::string const &number);
+	RPN							&operator=(const RPN &rhs);
 	RPN();
 	RPN(const RPN &cpy);
 	~RPN();
 };
 
 bool	isNumber(std::string str);
+void	exitProgram();
 
 #endif
