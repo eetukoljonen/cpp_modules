@@ -6,7 +6,7 @@
 /*   By: ekoljone <ekoljone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 16:03:17 by ekoljone          #+#    #+#             */
-/*   Updated: 2023/12/15 16:50:56 by ekoljone         ###   ########.fr       */
+/*   Updated: 2023/12/19 16:39:13 by ekoljone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,21 +29,21 @@ BitcoinExchange &BitcoinExchange::operator=(BitcoinExchange const &rhs)
 	return (*this);
 }
 
+void	exitProgram(std::string const &msg)
+{
+	std::cerr << msg << std::endl;
+	exit(1);
+}
+
 void	BitcoinExchange::parseData()
 {
 	std::string			line;
 	std::ifstream		file("data.csv");
 	if (!file.is_open())
-	{
-		std::cerr << "Error: could not open file." << std::endl;
-		exit(1);
-	}
+		exitProgram("Error: could not open file.");
 	std::getline(file, line);
 	if (line.compare("date,exchange_rate"))
-	{
-		std::cerr << "Error: wrong formatting" << std::endl;
-		exit(1);
-	}
+		exitProgram("Error: wrong formatting.");
 	while (file.is_open())
 	{
 		std::getline(file, line);
@@ -52,10 +52,7 @@ void	BitcoinExchange::parseData()
 		if (!line.empty())
 		{
 			if (line.find(",") == std::string::npos)
-			{
-				std::cerr << "Error: wrong formatting" << std::endl;
-				exit(1);
-			}
+				exitProgram("Error: wrong formatting.");
 			std::string date	= line.substr(0, line.find(","));
 			std::string s_val	= line.substr(line.find(",") + 1, line.size());
 			std::istringstream	iss(s_val);
@@ -115,7 +112,7 @@ bool isValidValue(std::string value)
 			return (false);
 		}
 	}
-	long long				number;
+	long long			number;
 	std::istringstream	iss(value);
 	iss >> number;
 	if (number > 1000)

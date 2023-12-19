@@ -6,7 +6,7 @@
 /*   By: ekoljone <ekoljone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 16:54:24 by ekoljone          #+#    #+#             */
-/*   Updated: 2023/12/18 13:51:54 by ekoljone         ###   ########.fr       */
+/*   Updated: 2023/12/19 16:18:21 by ekoljone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ bool isNumber(std::string str)
 			else
 				return (false);
 		}
-		if (!isdigit(str[i]) && !sign && !dot)
+		if (!isdigit(str[i]) && str[i] != '.' && str[i] != '-' && str[i] != '+')
 			return (false);
 	}
 	return (true);
