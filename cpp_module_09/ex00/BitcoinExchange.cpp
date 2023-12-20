@@ -6,7 +6,7 @@
 /*   By: ekoljone <ekoljone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 16:03:17 by ekoljone          #+#    #+#             */
-/*   Updated: 2023/12/19 16:39:13 by ekoljone         ###   ########.fr       */
+/*   Updated: 2023/12/20 12:39:43 by ekoljone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,13 +63,28 @@ void	BitcoinExchange::parseData()
 	}
 }
 
-bool isValidDate(std::string date)
+bool isLeapYear(int year)
 {
-	std::time_t		t = std::time(NULL);
-	std::tm *const	info = std::localtime(&t);
+    return (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0);
+}
+
+bool isValidDate(int year, int month, int day)
+{
+    if (year < 0 || month < 1 || month > 12 || day < 1)
+        return false;
+    int daysInMonth[] = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+    if (month == 2 && isLeapYear(year))
+        daysInMonth[2] = 29;
+    return (day <= daysInMonth[month]);
+}
+
+bool checkDate(std::string date)
+{
 	size_t			start = 0;
 	size_t			end = date.find("-");
-	int				date_info;
+	int				day;
+	int				year;
+	int				month;
 	for (int i = 0; i < 3; i++)
 	{
 		if (end == std::string::npos)
@@ -81,19 +96,18 @@ bool isValidDate(std::string date)
 				return (false);
 		}
 		std::istringstream iss(str);
-		iss >> date_info;
-		if (!i && date_info > (info->tm_year + 1900))
-			return (false);
-		if (i == 1 && (date_info < 1 || date_info > 12))
-			return (false);
-		if (i == 2 && (date_info < 1 || date_info > 31))
-			return (false);
+		if (!i)
+			iss >> year;
+		else if (i == 1)
+			iss >> month;
+		else
+			iss >> day;
 		start = end + 1;
 		end = date.find("-", start);
 		if (i == 1)
 			end = date.size();
 	}
-	return (true);
+	return (isValidDate(year, month, day));
 }
 
 bool isValidValue(std::string value)
@@ -107,7 +121,6 @@ bool isValidValue(std::string value)
 	{
 		if (value[i] != '-' && value[i] != '+' && value[i] != '.' && !isdigit(value[i]))
 		{
-			std::cout << value << value.size() << std::endl;
 			std::cout << "Error: not a number" << std::endl;
 			return (false);
 		}
@@ -141,7 +154,7 @@ void BitcoinExchange::printDates(std::string &line)
 {
 	std::string date	= line.substr(0, line.find("|"));
 	std::string s_val	= line.substr(line.find("|") + 1, line.size());
-	if (!isValidDate(date))
+	if (!checkDate(date))
 		std::cout << "bad input => " << date << std::endl;
 	else
 	{
@@ -166,17 +179,11 @@ void BitcoinExchange::printExchange(std::string input)
 	std::ifstream	file(input);
 	parseData();
 	if (!file.is_open())
-	{
-		std::cerr << "Error: could not open file." << std::endl;
-		exit(1);
-	}
+		exitProgram("Error: could not open file.");
 	std::getline(file, line);
 	line.erase(std::remove_if(line.begin(), line.end(), isspace), line.end());
 	if (line.compare("date|value"))
-	{
-		std::cerr << "Error: wrong formatting." << std::endl;
-		exit(1);
-	}
+		exitProgram("Error: wrong formatting.");
 	while (file.is_open())
 	{
 		std::getline(file, line);;
