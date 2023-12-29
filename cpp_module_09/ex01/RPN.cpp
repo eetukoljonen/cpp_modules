@@ -6,7 +6,7 @@
 /*   By: ekoljone <ekoljone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 16:54:24 by ekoljone          #+#    #+#             */
-/*   Updated: 2023/12/20 12:31:35 by ekoljone         ###   ########.fr       */
+/*   Updated: 2023/12/30 00:03:14 by ekoljone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ bool isNumber(std::string str)
 		}
 		if (str[i] == '-' || str[i] == '+')
 		{
-			if (i == 0)
+			if (sign == false)
 				sign = true;
 			else
 				return (false);
